@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Awareness Website</title>
+    <!-- <link rel="shortcut icon" href="images/fave_icon.png" type="image/x-icon"> -->
+    <!--/* Scroll cdn */-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/easy.css">
+
+    <link rel="stylesheet" href="css/slick.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="site-wrapper">
+        <!-- <div class="header-index">
+            <header>
+                <div class="container navbar">
+                    <div class="container-nav flex">
+                        <a href="/" class="navbar-logo"><img src="images/logo.png" alt=""></a>
+                        <button class="navbar-toggler" type="button">
+                            <span class="fa-solid fa-bars"></span>
+                        </button>
+                        <ul class="navbar-nav flex">
+                            <li><a href="/" class="nav-link active">Home</a></li>
+                            <li><a href="/" class="nav-link">About</a></li>
+                            <li><a href="/" class="nav-link">Contact</a></li>
+                            <li class="dropdown">
+                                <a href="/" class="nav-link dropdown-toggle">Pages</a>
+                            </li>
+                            <ul class="dropdown-menu">
+                                <li><a href="/" class="dropdown-item">Phishing</a></li>
+                                <li><a href="/" class="dropdown-item">Sql</a></li>
+                                <li><a href="/" class="dropdown-item">Xss</a></li>
+                                <li><a href="/" class="dropdown-item">Directory</a></li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+        </div> -->
+        <!--================Phishing Attack==================-->
+        <section class="attack">
+            <div class="container p-relative">
+                <div class="attack-para text-center">
+                    <h2 class="mt-15">Phishing Attack</h2>
+                    <br>
+                    <p class="m-1">Phishing attacks deceive users into revealing sensitive information through fake emails or websites.</p>
+                    <br>
+                    <h5>The Anatomy of Attack</h5>
+                </div>
+                <div class="attack-line flex flex-center gap-1 flex-wrap p-relative">
+                    <div>
+                        <a href="#overview">
+                            <h2>01.</h2>
+                            <h4 class="mt-07">Overview & Types</h4>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#carried-out">
+                            <h2>02.</h2>
+                            <h4 class="mt-07">How it can be carried out</h4>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#statistics">
+                            <h2>03.</h2>
+                            <h4 class="mt-07">Statistics</h4>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#signs-compromise">
+                            <h2>04.</h2>
+                            <h4 class="mt-07">Signs of Compromise</h4>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#mitigation">
+                            <h2>05.</h2>
+                            <h4 class="mt-07">Mitigation</h4>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#notable-incident">
+                            <h2>06.</h2>
+                            <h4 class="mt-07">Notable <br> Incident</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section> 
+        <!--================Overview & Types=================-->
+        <section id="overview" class="attack-info">
+            <div class="container">
+                <div class="attack-data">
+                    <!--======================Overview=================-->
+                    <div class="w-50">
+                        <div class="attack-def mt-7">
+                            <div class="flex attack-subtitle gap-2">
+                                <hr>
+                                <h5>Overview & Types</h5>
+                            </div>
+                                <h2>What is Phishing?</h2>
+                                <p>Phishing is a cyberattack that uses deceptive emails, texts, phone calls, or websites to trick individuals into sharing sensitive information or downloading malware. Unlike attacks targeting systems, phishing exploits human vulnerability through social engineering, manipulating victims into actions that compromise their security.
+                                    <br>
+                                   In a typical phishing scam, hackers pose as trusted entities like colleagues or brands, instructing victims to perform tasks like paying an invoice, opening an attachment, or clicking a link. These actions often lead to stolen personal data, malware installation, or financial fraud, all due to the trust placed in the fake source. </p>    
+                        </div>
+                    </div>
+                    <div class="w-50">
+                        <div class="custom-image">
+                            <img src="Images/home/phishing-def.jpg" alt="img">
+                        </div>
+                    </div>
+                </div> 
+                <!--=================Types==================-->
+                <div>
+                    <div class="attack-types gap-2">
+                        <div class="flex flex-wrap info-center">
+                            <div class="w-66">
+                                <h2 class="mt-1">Types of Phishing</h2>
+                            </div>
+                            <div class="flex flex-end">
+                                <a href="https://www.ibm.com/topics/phishing#:~:text=Phishing%20is%20a%20type%20of,otherwise%20exposing%20themselves%20to%20cybercrime." class="btn_hover2">Reference</a>
+                            </div>
+                        </div>
+                        <p class="mt-3">The word "phishing" plays on the fact that scammers use attractive "lures" to trick their victims, much the same way that fishers use bait to hook actual fish. In phishing, the lures are fraudulent messages that appear credible and evoke strong emotions like fear, greed and curiosity. 
+
+                            The kinds of lures phishing scammers use depend on whom and what they are after. Some common examples of phishing attacks include:  </p>
+                        <h4>Bulk email phishing</h4>
+                        <p class="mt-1">Bulk email phishing involves sending spam emails to a large number of recipients, hoping some will fall for the scam. These emails often impersonate legitimate businesses like banks or retailers to increase their credibility, using familiar logos, spoofed email addresses, and urgent subject lines like "Problem with your order" to manipulate recipients. 
+                            <br>
+                            The emails prompt victims to take actions like clicking on malicious links or downloading malware, often leading to stolen login credentials or financial loss. Scammers frequently time their attacks around events like holidays or sales to exploit lowered vigilance, such as during Amazon’s Prime Day.</p>
+
+                        <h4>Spear phishing</h4>
+                        <p class="mt-1">Spear phishing is a targeted phishing attack aimed at individuals with access to sensitive data, such as finance managers or executives. Attackers gather personal information about the target from social media or professional networks to craft convincing messages, often posing as someone the target trusts, like a boss or coworker. 
+                            <br>
+                            For example, a spear phisher might impersonate the target's boss, requesting an urgent task like paying an invoice. When aimed at high-level executives or wealthy individuals, this type of attack is called whale phishing or whaling.</p>
+                            
+                            <h4>Business email compromise (BEC)</h4>
+                            <p class="mt-1">Business Email Compromise (BEC) is a form of spear phishing targeting businesses to steal money or valuable information like trade secrets or customer data. Common BEC tactics include CEO fraud, where scammers impersonate a C-level executive to instruct lower-level employees to transfer funds or send sensitive files, and Email Account Compromise (EAC), where attackers hijack an employee’s account to send fraudulent invoices or request unauthorized payments.
+                                <br>
+                                BEC attacks can be extremely costly, with some scams leading to millions in losses. While high-profile scams have targeted large corporations, recent trends show an increase in smaller, more frequent BEC attacks.</p>
+
+                            <h4>Other Phishing techniques</h4>
+                            <h5 class="mt-3">Smishing</h5>  
+                                <p class="mt-1">Smishing, or SMS phishing, involves scammers sending fake text messages posing as trusted entities, such as wireless providers or shipping companies. These texts may offer "free gifts" or request sensitive information like credit card details, or claim a package fee is required.</p>
+                                
+                            <h5>Vishing</h5>  
+                                <p class="mt-1">Vishing, or voice phishing, uses phone calls to trick victims into providing sensitive information. Scammers often spoof caller IDs to appear legitimate and scare recipients with fake issues, such as credit card problems or legal trouble, to extract data or money. Vishing attacks have surged, thanks to VoIP technology.</p>
+                                
+                            <h5>Social Media Phishing</h5>  
+                                <p class="mt-1">Social media phishing targets victims through platform messaging features, like Facebook Messenger or LinkedIn InMail. Scammers may pose as users needing help or pretending to offer a contest, aiming to steal login credentials and take over accounts. This is particularly risky for users who reuse passwords across multiple platforms.</p>
+                    </div>
+                </div>
+            </div>
+        </section>        
+        <!--============How it can be carried out?===========-->
+        <section id="carried-out" class="attack-carry">
+            <div class="container">
+                <div class="attack-performed">
+                    <div class="flex flex-wrap per-center">
+                        <div class="w-66">
+                            <div class="flex gap-1">
+                                <hr class="per-hr1 m-0">
+                                <h5>How it can be carried out</h5>
+                            </div>
+                            <h2>Execution of Phishing Attack</h2>
+                            <p class="mt-1">Here's a  breakdown of how phishing attacks are executed, from the initial bait to the eventual exploitation of the victim's information.</p>
+                        </div>
+                        <div class="flex w-33 flex-end">
+                            <a href="https://www.ibm.com/topics/phishing#:~:text=Phishing%20is%20a%20type%20of,otherwise%20exposing%20themselves%20to%20cybercrime." class="btn_hover2">Reference</a>
+                        </div>
+                        <!--Step1-->
+                        <div class="w-50 flex flex-col gap-2 mt-1">
+                            <div class="flex gap-1 ex-card">
+                                <div class="flex flex-center">
+                                    <h3>Step 1</h3>
+                                </div>
+                                <div>
+                                    <h4>The Bait</h4>
+                                    <p>The attacker sends an email, message, or social media communication that appears to come from a trusted source. Examples include banks, popular websites, or colleagues. These communications often contain urgent calls to action, such as "Your account will be locked," or "You've won a prize."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-50 p-relative flex flex-center">
+                            <div class="performed_mask">
+                                <figure>
+                                    <img src="Images/home/phishing-step1.png" alt="img">
+                                </figure>
+                            </div>
+                        </div>
+                        <!--Step2-->
+                        <div class="w-50 p-relative flex flex-center">
+                            <div class="performed_mask">
+                                <figure>
+                                    <img src="Images/home/phishing-step2.png" alt="img">
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="w-50 flex flex-col gap-2 mt-1">
+                            <div class="flex gap-1 ex-card">
+                                <div class="flex flex-center">
+                                    <h3>Step 2</h3>
+                                </div>
+                                <div>
+                                    <h4>Luring the victim</h4>
+                                    <p>The message prompts the recipient to click on a malicious link or download an attachment. Often, the link leads to a fake website designed to look identical to the legitimate one. The user is asked to log in or provide sensitive information. The attachment may contain malware compromise victim's device</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!--Step3-->
+                        <div class="w-50 flex flex-col gap-2 mt-1">
+                            <div class="flex gap-1 ex-card">
+                                <div class="flex flex-center">
+                                    <h3>Step 3</h3>
+                                </div>
+                                <div>
+                                    <h4>Harvesting Credentials</h4>
+                                    <p>If the victim enters their credentials or personal information, the data is immediately sent to the attacker. This can include usernames, passwords, credit card numbers, and security questions. The phishing site or malware transfers data to attacker, granting immediate access to victim's accounts.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-50 p-relative flex flex-center">
+                            <div class="performed_mask">
+                                <figure>
+                                    <img src="Images/home/phishing-step3.png" alt="img">
+                                </figure>
+                            </div>
+                        </div>
+                        <!--Step4-->
+                        <div class="w-50 p-relative flex flex-center">
+                            <div class="performed_mask">
+                                <figure>
+                                    <img src="Images/home/phishing-step4.png" alt="img">
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="w-50 flex flex-col gap-2 mt-1">
+                            <div class="flex gap-1 ex-card">
+                                <div class="flex flex-center">
+                                    <h3>Step 4</h3>
+                                </div>
+                                <div>
+                                    <h4>Exploitation</h4>
+                                    <p>The attacker can then use this information to steal money, compromise other accounts, launch further attacks, or sell the data on the dark web. In the case of spear-phishing (targeted phishing), the attack might compromise business operations, steal intellectual property, or initiate fraudulent transactions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--====================Statistics===================-->
+        <section id="statistics" class="attack-statistics">
+            <div class="container">
+                <div class="flex flex-wrap stat-center">
+                    <div class="w-66">
+                        <div class="flex gap-1">
+                            <hr class="stat-hr1 m-0">
+                            <h5>Statistics</h5>
+                        </div>
+                        <h2>Global Phishing Attack Trends (2018-2023)</h2>
+                        <p class="mt-1">The bar chart illustrates the growing prevalence of phishing attacks over the past six years, highlighting the significant surge in cyber threats, particularly during the post-COVID era. The data underscores the increasing frequency of phishing attempts, reflecting the evolving tactics of cybercriminals targeting individuals and organizations worldwide.</p>
+                    </div>
+                    <div class="flex w-33 flex-end">
+                        <a href="/" class="btn_hover2">Reference</a>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="phishingPrevalenceChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="pie-charts">
+                    <div class="pie">
+                        <div class="outer">
+                            <div class="inner">
+                                <div id="number">
+                                    76%
+                                </div>
+                            </div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                            <defs>
+                                <linearGradient id="GradientColor">
+                                    <stop offset="0%" stop-color="#DA22FF" />
+                                    <stop offset="100%" stop-color="#9733EE" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                
+                    <div class="pie">
+                        <div class="outer">
+                            <div class="inner">
+                                <div id="number">
+                                    76%
+                                </div>
+                            </div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                            <defs>
+                                <linearGradient id="GradientColor">
+                                    <stop offset="0%" stop-color="#DA22FF" />
+                                    <stop offset="100%" stop-color="#9733EE" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                
+                    <div class="pie">
+                        <div class="outer">
+                            <div class="inner">
+                                <div id="number">
+                                    76%
+                                </div>
+                            </div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                            <defs>
+                                <linearGradient id="GradientColor">
+                                    <stop offset="0%" stop-color="#DA22FF" />
+                                    <stop offset="100%" stop-color="#9733EE" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                </div>
+                
+
+                <div class="bar-chart mt-4">
+                    <div class="container">
+                        <div class="flex flex-wrap stat-center">
+                            <div>
+                                <h2>Target Industries: Most Targeted by Phishing (Bar Graph)</h2>
+                                <p class="mt-1">Phishing attacks disproportionately target certain industries that hold valuable data or operate with sensitive information. This bar graph highlights the industries that faced the highest number of phishing attempts, showing how sectors like technology, finance, and healthcare are prime targets due to their lucrative nature for cybercriminals. By identifying which industries are most vulnerable, companies can focus on strengthening their cybersecurity defenses and awareness programs.</p>
+                            </div>
+                        </div>
+
+                    <div class="bar mt-3">
+                        <div class="bar-name">
+                            Financial Services
+                        </div>
+                        <div class="bar-progress">
+                            <div class="bar-per" per="28%" style="max-width:28%";></div>
+                        </div>
+                    </div>
+                    <div class="bar mt-3">
+                        <div class="bar-name">
+                            Retail and eCommerce
+                        </div>
+                        <div class="bar-progress">
+                            <div class="bar-per" per="21%" style="max-width:21%";></div>
+                        </div>
+                    </div>
+                    <div class="bar mt-3">
+                        <div class="bar-name">
+                            Technology
+                        </div>
+                        <div class="bar-progress">
+                            <div class="bar-per" per="19%" style="max-width:19%";></div>
+                        </div>
+                    </div>
+                    <div class="bar mt-3">
+                        <div class="bar-name">
+                            Healthcare
+                        </div>
+                        <div class="bar-progress">
+                            <div class="bar-per" per="15%" style="max-width:15%";></div>
+                        </div>
+                    </div>
+                    <div class="bar mt-3">
+                        <div class="bar-name">
+                            Government
+                        </div>
+                        <div class="bar-progress">
+                            <div class="bar-per" per="10%" style="max-width:10%";></div>
+                        </div>
+                    </div>
+                    <div class="bar mt-3">
+                        <div class="bar-name">
+                            Education
+                        </div>
+                        <div class="bar-progress">
+                            <div class="bar-per" per="7%" style="max-width:7%";></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================Signs of Compromise==============-->
+        <section id="signs-compromise" class="compro">
+            <div class="container">
+                <div class="flex compro-center">
+                    <div class="w-66">
+                        <div class="flex gap-1">
+                            <hr class="compro-hr1">
+                            <h5>Signs of Compromise</h5>
+                        </div>
+                        <h2 class="mt-1">Identifying Phishing Attacks</h2>
+                        <p class="mt-1">Phishing attacks often come with telltale signs that can help you spot them before falling victim. Below are the most common indicators of a phishing attempt—learn to recognize them and protect your sensitive information.</p>
+                    </div>
+                    <div class="flex w-33 flex-end">
+                        <a href="/" class="btn_hover2">Reference</a>
+                    </div>
+                </div>
+                <div class="compro-slider flex mt-15">
+                    <div class="compro-img">
+                        <img src="Images/home/compromise1.jpg" alt="avatar">
+                        <div class="overlay">
+                            <div class="overlay_text">
+                                <h3>Unexpected Attachments</h3>
+                                <p>Phishing emails often have unexpected attachments, especially with executable files or links.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="compro-img">
+                        <img src="Images/home/compromise2.jpg" alt="avatar">
+                        <div class="overlay">
+                            <div class="overlay_text">
+                                <h3>Urgent Requests</h3>
+                                <p>Phishing attacks often create a sense of urgency, such as "Your account will be locked!"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="compro-img">
+                        <img src="Images/home/compromise3.jpg" alt="avatar">
+                        <div class="overlay">
+                            <div class="overlay_text">
+                                <h3>Unfamiliar Sender</h3>
+                                <p>Emails from unfamiliar addresses asking for sensitive information are a common phishing tactic.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="compro-img">
+                        <img src="Images/home/compromise4.jpg" alt="avatar">
+                        <div class="overlay">
+                            <div class="overlay_text">
+                                <h3>Suspicious Links</h3>
+                                <p>Hover over links before clicking. Phishing links may look legitimate but lead to malicious sites.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="compro-img">
+                        <img src="Images/home/compromise5.jpg" alt="avatar">
+                        <div class="overlay">
+                            <div class="overlay_text">
+                                <h3>Grammatical Errors</h3>
+                                <p>Phishing emails often contain poor grammar and spelling mistakes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--===================Mitigation====================-->
+        <section id="mitigation" class="miti">
+            <div class="container">
+                <div class="miti-info">
+                    <div class="flex flex-wrap miti-center">
+                        <div class="w-66">
+                            <div class="flex gap-1">
+                                <hr class="miti-hr1 m-0">
+                                <h5>Mitigation</h5>
+                            </div>
+                            <h2>Security awareness training and organizational policies</h2>
+                        </div>
+                        <div class="flex w-33 flex-end">
+                            <a href="https://www.ibm.com/topics/phishing#:~:text=Phishing%20is%20a%20type%20of,otherwise%20exposing%20themselves%20to%20cybercrime." class="btn_hover2">Reference</a>
+                        </div>
+                            <p class="mt-1">Because phishing scams target people, employees are often an organization's first and last line of defense against these attacks. Organizations can teach users how to recognize the signs of phishing attempts and respond to suspicious emails and text messages. This can include giving employees easy ways to report phishing attempts to the IT or security team.
+
+                                Organizations can also establish policies and practices that make it harder for phishers to succeed. 
+                                
+                                For example, organizations can forbid people from initiating monetary transfers over email. They can require employees to verify requests for money or information by contacting the requester through means other than those provided in the message. For example, employees can type a URL directly into their browser instead of clicking a link or call a colleague's office line instead of replying to a text from an unknown number.</p>
+                        
+                        <h2>Antiphishing tools and technology</h2>
+                        <p class="mt-1">Organizations can bolster employee training and reinforce company policies by implementing advanced security tools to detect phishing attempts. These tools can identify and flag suspicious emails or messages, preventing employees from inadvertently engaging with phishing scams. By doing so, organizations reduce the risk of human error and strengthen their defenses against hackers. Ultimately, these measures help thwart phishing attacks aimed at compromising networks and sensitive data.</p>
+                        
+                    </div>
+                    <div class="mitigation-card flex-wrap flex-sb">
+                        <div class="card rgb">
+                            <div class="card-image1"></div>
+                            <div class="card-text">
+                                <h3>Spam filters and email security software</h3>
+                                <p>Use data on existing phishing scams and machine learning algorithms to identify phishing emails and other spam messages. The scams and spam are then moved to a separate folder, where malicious links and code are eradicated.</p>
+                            </div>
+                        </div>
+                        <div class="card rgb">
+                            <div class="card-image"></div>
+                            <div class="card-text">
+                                <h3>Antivirus and antimalware software</h3>
+                                <p>Detect and neutralize malicious files or code in phishing emails by scanning attachments, links, and executables. They use real-time threat detection and behavioral analysis to block malware before it executes. Email filtering features also help prevent phishing emails from reaching the inbox.</p>
+                            </div>
+                        </div>
+                        <div class="card rgb">
+                            <div class="card-image"></div>
+                            <div class="card-text">
+                                <h3>Multifactor authentication</h3>
+                                <p>Adds extra security by requiring a second form of verification like a fingerprint scan or one-time passcode. While phishers may steal passwords, they struggle to bypass this additional factor, making it harder to take over accounts. MFA reduces the risk of unauthorized access, even if passwords are compromised.</p>
+                            </div>
+                        </div>
+                        <div class="card rgb">
+                            <div class="card-image"></div>
+                            <div class="card-text">
+                                <h3>Endpoint security</h3>
+                                <p>Tools like Endpoint Detection and Response (EDR) and Unified Endpoint Management (UEM) utilize artificial intelligence (AI) and advanced analytics to detect and block phishing attempts and malware. They continuously monitor devices for suspicious activity and respond to potential threats in real-time, enhancing threat detection accuracy and automating incident response.</p>
+                            </div>
+                        </div>
+                        <div class="card rgb">
+                            <div class="card-image"></div>
+                            <div class="card-text">
+                                <h3>Web filters</h3>
+                                <p>Prevent users from accessing known malicious websites and provide alerts when they attempt to visit suspicious pages. By blocking harmful content, these tools help reduce the risk of falling victim to phishing attacks and other online threats. Additionally, if a user clicks a phishing link, web filters can mitigate potential damage by preventing further access to harmful sites.</p>
+                            </div>
+                        </div>
+                        <div class="card rgb">
+                            <div class="card-image"></div>
+                            <div class="card-text">
+                                <h3>Enterprise cybersecurity solutions</h3>
+                                <p>Such as security orchestration, automation and response (SOAR) and security information and event management (SIEM) platforms, use AI and automation to detect and respond to anomalous activity. These solutions can help stop phishers who are attempting to install malware or take over accounts.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================Notable Incident=================-->
+        <section id="notable-incident">
+            <h2>Notable Incident</h2>
+            <p>Content for Notable Incident...</p>
+        </section>      
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="vanilla-tilt.min.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelectorAll(".card"),{
+            glare: true,
+            reverse: true,
+            "max-glare": 0.1,
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Scroll animation lib -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 150,
+            duration: 1250,
+            once: true,
+        });
+    </script>
+
+    <!-- jquery js cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- jquery min js cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- slick carousel min js cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+        integrity="sha256-DHF4zGyjT7GOMPBwpeehwoey18z8uiz98G4PRu2lV0A=" crossorigin="anonymous"></script>
+</body>
+
+</html>

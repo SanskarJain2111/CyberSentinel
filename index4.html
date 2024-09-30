@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity News</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1e1e2d;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        #news-section {
+            max-width: 900px;
+            width: 100%;
+            padding: 30px;
+            background-color: #2a2a3a;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        h3 {
+            color: #00ffff;
+            font-size: 32px;
+            margin-bottom: 20px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #333;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+        }
+
+        li:hover {
+            background-color: #444;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+        }
+
+        a {
+            color: #00ffff;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #00e6e6;
+        }
+
+        p {
+            color: #b0b0b0;
+            font-size: 16px;
+        }
+
+        /* Add a subtle glow animation to give a more futuristic feel */
+        a:hover, h3 {
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00e6e6, 0 0 30px #00cccc;
+            }
+            to {
+                text-shadow: 0 0 20px #00e6e6, 0 0 30px #00cccc, 0 0 40px #00b3b3;
+            }
+        }
+
+        /* Make sure the site is responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            li {
+                padding: 15px;
+            }
+
+            a {
+                font-size: 18px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="news-section">
+        <h3>Latest Cybersecurity News</h3>
+        <ul id="news-list"></ul>
+    </div>
+    <script src="server.js"></script>
+    <script>
+        async function fetchNews() {
+            try {
+                const response = await fetch('/latest-news');
+                const newsData = await response.json();
+                const newsList = document.getElementById('news-list');
+
+                newsData.forEach(news => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                        <a href="${'https://newsapi.org/v2/top-headlines?category=technology&apiKey=2a893056950d47ceae949c75eb7253a3'}" target="_blank">${news.title}</a>
+                        <p>${news.description}</p>
+                    `;
+                    newsList.appendChild(listItem);
+                });
+            } catch (error) {
+                console.error('Error fetching news:', error);
+            }
+        }
+
+        fetchNews();
+    </script>
+</body>
+</html>
