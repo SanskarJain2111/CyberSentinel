@@ -1,6 +1,29 @@
+// side bar start
+
+function openNav(){
+    'use strict';
+    const sidepanel = document.getElementById('mySidepanel');
+    if(sidepanel){
+        sidepanel.style.left = '0';
+    }else{
+        console.error('error: side panel not found')
+    }
+}
+
+function closeNav(){
+    'use strict';
+    const sidepanel = document.getElementById('mySidepanel');
+    if(sidepanel){
+        sidepanel.style.left = '-320px';
+    }else{
+        console.error('error: side panel not found')
+    }
+}
+
+
 
 // Wait until the window loads
-window.onload = function() {
+window.onscroll = function() {
     // Get the canvas element
     var ctx = document.getElementById('phishingPrevalenceChart').getContext('2d');
 
