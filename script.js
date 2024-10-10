@@ -6,7 +6,7 @@ function openNav(){
     if(sidepanel){
         sidepanel.style.left = '0';
     }else{
-        console.error('error: side panel not found')
+        console.error('error: side panel not found');
     }
 }
 
@@ -16,14 +16,36 @@ function closeNav(){
     if(sidepanel){
         sidepanel.style.left = '-320px';
     }else{
-        console.error('error: side panel not found')
+        console.error('error: side panel not found');
+    }
+}
+
+function open_search(){
+    'use strict';
+    const searchpanel = document.getElementById('search-bar');
+    if(searchpanel){
+        searchpanel.style.height = '100vh';
+        searchpanel.style.borderRadius = '0';
+    }else{
+        console.error('error: search panel not found');
+    }
+}
+
+function close_search(){
+    'use strict';
+    const searchpanel = document.getElementById('search-bar');
+    if(searchpanel){
+        searchpanel.style.height = '0';
+        searchpanel.style.borderTopLeftRadius = '100%';
+        searchpanel.style.borderTopRightRadius = '100%';
+    }else{
+        console.error('error: search panel not found');
     }
 }
 
 
-
 // Wait until the window loads
-window.onscroll = function() {
+window.onload = function() {
     // Get the canvas element
     var ctx = document.getElementById('phishingPrevalenceChart').getContext('2d');
 

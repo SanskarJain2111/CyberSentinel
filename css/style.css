@@ -523,7 +523,7 @@ aside .simulation{
 #search-bar{
     background-color: #000000a6;
     width: 100%;
-    height: 100%;
+    height: 0;
     position: fixed;
     display: flex;
     z-index: 2;
@@ -561,6 +561,22 @@ aside .simulation{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#search-bar form input{
+    border-radius: 50px;
+    background: #381a46;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 18px;
+    width: 100%;
+}
+
+#search-bar form button{
+    transition: all 0.3s ease;
+    text-transform: uppercase;
 }
 
 
