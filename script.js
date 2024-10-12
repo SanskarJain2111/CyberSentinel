@@ -46,25 +46,20 @@ function close_search(){
 
 // Wait until the window loads
 window.onload = function() {
-    // Get the canvas element
-    var ctx = document.getElementById('phishingPrevalenceChart').getContext('2d');
-
-    // Data for the chart
-    var prevalenceData = {
-        labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
-        datasets: [{
-            label: 'Number of Phishing Attacks',
-            data: [12000, 15000, 25000, 40000, 45000, 50000], // Example data
-            backgroundColor: 'rgba(60, 196, 196, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1, 
-        }]
-    };
-
-    // Configuration for the bar chart
+    var chartRendered = false; // To prevent multiple re-renders
+    
     var config = {
         type: 'bar',
-        data: prevalenceData,
+        data: {
+            labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+            datasets: [{
+                label: 'Number of Phishing Attacks',
+                data: [12000, 15000, 25000, 40000, 45000, 50000],
+                backgroundColor: 'rgba(60, 196, 196, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+            }]
+        },
         options: {
             responsive: true,
             scales: {
@@ -73,7 +68,7 @@ window.onload = function() {
                     title: {
                         display: true,
                         text: 'Number of Attacks',
-                        color: '#bcbcbc',  // Color of y-axis title
+                        color: '#bcbcbc',
                         font: {
                             weight: 'bold',
                             size: 13
@@ -110,10 +105,49 @@ window.onload = function() {
         }
     };
 
-    // Initialize the chart
-    var phishingPrevalenceChart = new Chart(ctx, config);
+    var observer = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting && !chartRendered) {
+            chartRendered = true; // Ensure chart renders only once
+            var ctx = document.getElementById('phishingPrevalenceChart').getContext('2d');
+            new Chart(ctx, config);
+        }
+    }, {
+        threshold: 0.5 // Chart will animate when 50% of it is visible
+    });
+
+    // Target the chart container
+    var chartContainer = document.querySelector('.chart-container');
+    observer.observe(chartContainer);
 };
 
+
+//Notable Incident
+
+document.querySelectorAll('.incident-event').forEach(event => {
+    event.addEventListener('click', () => {
+        const detailsDiv = event.querySelector('.incident-details');
+        const content = event.getAttribute('data-content');
+
+        // Collapse any other opened details
+        document.querySelectorAll('.incident-details.active').forEach(activeDetail => {
+            if (activeDetail !== detailsDiv) {
+                activeDetail.classList.remove('active');
+                activeDetail.innerHTML = ''; // Clear content when collapsing other details
+            }
+        });
+
+        // Toggle current event's details
+        if (detailsDiv.classList.contains('active')) {
+            // Collapse the details
+            detailsDiv.classList.remove('active');
+            detailsDiv.innerHTML = ''; // Clear content on collapse
+        } else {
+            // Expand the details
+            detailsDiv.classList.add('active');
+            detailsDiv.innerHTML = content; // Set content when expanding
+        }
+    });
+});
 
 
 //Signs of Compromise

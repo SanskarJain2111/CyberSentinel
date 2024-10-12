@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Awareness Website</title>
+    <link rel="shortcut icon" href="images/cyber-security.png" type="image/x-icon">
+    <!--/* Scroll cdn */-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/easy.css">
+
+    <link rel="stylesheet" href="css/slick.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="site-wrapper">
+        <div class="header-index">
+            <!--================Header Section==================-->
+            <header>
+                <nav class="container navbar">
+                    <div class="container-nav flex">
+                        <a href="/" class="navbar-logo"><img src="" alt=""></a>
+                        <button onclick="openNav()" class="navbar-toggler" type="button">
+                            <span class="fa-solid fa-bars"></span>
+                        </button>
+                        <ul class="navbar-nav flex">
+                            <li><a href="/" class="nav-link active">Home</a></li>
+                            <li><a href="/" class="nav-link">About</a></li>
+                            <li><a href="/" class="nav-link">Contact</a></li>
+                            <li><a href="/" class="nav-link">Attacks</a></li>
+                            <li class="dropdown">
+                                <a href="/" class="nav-link dropdown-toggle">Simulation</a>
+
+                                <ul class="dropdown-menu">
+                                    <li><a href="/" class="dropdown-item">Phishing</a></li>
+                                    <li><a href="/" class="dropdown-item">Sql</a></li>
+                                    <li><a href="/" class="dropdown-item">Xss</a></li>
+                                    <li><a href="/" class="dropdown-item">Directory</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-right flex">
+                        <i onclick="open_search()" class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </nav>
+                <aside id="mySidepanel" class="sidepanel">
+                    <div class="sidebar flex">
+                        <a href=""><img src="" alt="logo"></a>
+                        <button onclick="closeNav()" type="button" class="closebtn btn_hover1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><a href="/" class="nav-link active">Home</a></li>
+                            <li><a href="/" class="nav-link">About</a></li>
+                            <li><a href="/" class="nav-link">Contact</a></li>
+                            <li class="simulation"><a href="/">More</a></li>
+                            <li class="collapse-btn">
+                                <a href="" class="nav-link plus_collapse" data-bs-toggle="collapse">
+                                    <i class="fa-solid fa-plus"></i>
+                                </a>
+                                <div class="collapse" id="simulation">
+                                    <ul>
+                                        <li><a href="/" class="nav-link">Phishing</a></li>
+                                        <li><a href="/" class="nav-link">Sql</a></li>
+                                        <li><a href="/" class="nav-link">Xss</a></li>
+                                        <li><a href="/" class="nav-link">Directory</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Search bar -->
+                <div id="search-bar">
+                    <div onclick="close_search()" class="btn_hover1">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    <form id="searchForm" action="/search" method="search">
+                        <input type="search" name="query" required placeholder="Search attacks...">
+                        <button type="submit" class="btn_hover1">Search</button>
+                    </form>
+                </div>
+            </header>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- <script src="vanilla-tilt.min.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelectorAll(".card"), {
+            glare: true,
+            reverse: true,
+            "max-glare": 0.1,
+        });
+    </script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Scroll animation lib -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 150,
+            duration: 1250,
+            once: true,
+        });
+    </script>
+
+    <!-- jquery js cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- jquery min js cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- slick carousel min js cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+        integrity="sha256-DHF4zGyjT7GOMPBwpeehwoey18z8uiz98G4PRu2lV0A=" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6"></script>
+    <script>
+        // List of pages and keywords
+        const pages = {
+            "home": ["/index.html", ["home", "main page", "start"]],
+            "about": ["/about.html", ["about", "about us", "who we are"]],
+            "services": ["/services.html", ["services", "what we offer", "products"]],
+            "contact": ["/contact.html", ["contact", "reach us", "contact page"]],
+            "cybersecurity": ["/cybersecurity.html", ["cybersecurity", "security", "data protection"]],
+            "phishing": ["/phishingInfo.html", ["phishing", "email security", "phishing awareness"]],
+            "awareness": ["/awareness.html", ["awareness", "education", "training"]]
+        };
+        
+        // Handle search form submission
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent form from submitting
+        
+            const query = document.querySelector('input[name="query"]').value.toLowerCase().trim();
+            let found = false;
+        
+            // Iterate through the pages to find a match
+            for (let page in pages) {
+                if (pages[page][1].some(keyword => query.includes(keyword))) {
+                    window.location.href = pages[page][0];  // Redirect if a keyword matches
+                    found = true;
+                    break;
+                }
+            }
+        
+            // If no match found, show an alert
+            if (!found) {
+                alert('No results found.');
+            }
+        });
+    </script> 
+        
+
+</body>
+
+</html>

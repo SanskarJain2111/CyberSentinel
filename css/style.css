@@ -1264,7 +1264,9 @@ svg{
     100% {background-position: 0% 50%;}
 }
 
-.card-image1{
+/* Phishing cards */
+
+.phishcard-image1{
     grid-area: image;
     background: url('../Images/home/mitigationcard2.jpeg');
     border-top-left-radius: 15px;
@@ -1273,13 +1275,170 @@ svg{
     background-position: center;
 }
 
-.card2 .card-image {
+.phishcard-image2{
+    grid-area: image;
+    background: url('../Images/home/phishmiti2.webp');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.phishcard-image3{
+    grid-area: image;
+    background: url('../Images/home/phishmiti3.webp');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.phishcard-image4{
+    grid-area: image;
+    background: url('../Images/home/phishmiti4.jpg');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.phishcard-image5{
+    grid-area: image;
+    background: url('../Images/home/phishmiti5.jpg');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.phishcard-image6{
+    grid-area: image;
+    background: url('../Images/home/phishmiti6.webp');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* xss cards */
+
+.xsscard-image1{
+    grid-area: image;
+    background: url('../Images/home/xssmiti1.webp');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.xsscard-image2{
+    grid-area: image;
+    background: url('../Images/home/xssmiti2.webp');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.xsscard-image3{
+    grid-area: image;
+    background: url('../Images/home/xssmiti3.webp');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.xsscard-image4{
+    grid-area: image;
+    background: url('../Images/home/xssmiti4.webp');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.xsscard-image5{
+    grid-area: image;
+    background: url('../Images/home/xssmiti5.jpg');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.xsscard-image6{
+    grid-area: image;
+    background: url('../Images/home/xssmiti6.jpg');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Sql cards */
+
+.sqlcard-image1{
+    grid-area: image;
+    background: url('../Images/home/sqlmiti1.webp');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.sqlcard-image2{
+    grid-area: image;
+    background: url('../Images/home/sqlmiti2.webp');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.sqlcard-image3{
+    grid-area: image;
+    background: url('../Images/home/sqlmiti3.jpg');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.sqlcard-image4{
+    grid-area: image;
+    background: url('../Images/home/sqlmiti4.webp');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.sqlcard-image5{
+    grid-area: image;
+    background: url('../Images/home/sqlmiti5.webp');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.sqlcard-image6{
+    grid-area: image;
+    background: url('../Images/home/sqlmiti6.webp');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* .card2 .card-image {
     background: url('../Images/home/mitigationcard2.webp');
 }
 
 .card3 .card-image {
     background: url('../Images/home/mitigationcard3.webp');
-}
+} */
 
 .card-text{
     grid-area: text;
@@ -1349,5 +1508,150 @@ svg{
     padding: 16px 38px 16px 38px;
 }
 
+
+
+/* Notable incident */
+.notable{
+    background-color: #011f32;
+    padding: 120px 0 0 0;
+}
+
+.notable h5{
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.notable h2{
+    color: #fff;
+    padding: 20px 212px 0 0;
+}
+
+.notable h3{
+    color: #fff;
+    padding: 20px 212px 0 0;
+}
+
+
+.notable-center p{
+    font-size: 16px;
+    padding: 0 221 0 0;
+}
+
+.notable p{
+    color: #fff;
+}
+
+.notable .notable-hr1{
+    opacity: 1.25;
+    height: 1px;
+    color: #b520a3;
+    width: 60px;
+    border: 1px solid;
+}
+
+.notable .btn_hover2{
+    padding: 15px 30px;
+    border: 1px solid #ff7527;
+}
+
+.notable-center .w-33{
+    flex: 0 0 auto;
+}
+
+.incident {
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+    border-left: 4px solid #7c1670; /* incident left border */
+}
+
+.incident-event {
+    position: relative;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: #fff; /* White background */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s; /* Add a hover effect */
+    cursor: pointer; /* Pointer for clickable events */
+}
+
+.incident-event:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(11deg, #b520a3 0.01%, #7436bb 100%);
+}
+
+.incident-marker {
+    position: absolute;
+    left: -40px; /* Position the marker */
+    top: 10px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(11deg, #7436bb 0.01%, #b520a3 100%); /* Marker color */
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: background-color 0.3s; /* Smooth color change on hover */
+}
+
+.incident-marker:hover {
+    background: linear-gradient(11deg, #b520a3 0.01%, #7436bb 100%); /* Darker shade on hover */
+}
+
+.incident-title {
+    font-size: 20px;
+    color: #231f20; /* Title color */
+    font-weight: bold;
+    margin-bottom: 5px; /* Space below title */
+}
+
+.incident-details {
+    display: none; /* Hidden by default */
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9ccf4; /* Light blue background */
+    border-left: 4px solid #7c1670; /* Left border */
+    border-radius: 4px;
+    opacity: 0; /* Initial opacity for fade-in */
+    transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out; /* Smooth transition */
+    max-height: 0; /* Collapsed by default */
+    overflow: hidden; /* Prevent overflow when collapsed */
+}
+
+.incident-details.active {
+    display: block; /* Show details */
+    opacity: 1; /* Fade-in effect */
+    max-height: 200px; /* Set max height for expanded state */
+    transition: opacity 0.5s ease-in-out; /* Transition for expanding */
+}
+
+
+.download-section {
+    margin-top: 30px;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    border: 1px solid #00ffff;
+    border-radius: 5px;
+}
+
+.download-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: linear-gradient(180deg, #ff7527 0%, #fabf28 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background 0.3s;
+}
+
+.download-link:hover {
+    background: linear-gradient(42deg, #7436bb 0.01%, #b520a3 100%);
+}
 
 
