@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Awareness Website</title>
+    <link rel="shortcut icon" href="images/cyber-security.png" type="image/x-icon"> 
+    <!--/* Scroll cdn */-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/easy.css">
+
+    <link rel="stylesheet" href="css/slick.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        
+</head>
+
+<body>
+    <div class="site-wrapper">
+        <!--================Cross Site Scripting Attack==================-->
+        <section class="attack">
+            <div class="container p-relative">
+                <div class="attack-para text-center" data-aos="zoom-in">
+                    <h2 class="mt-15">Cross Site Scripting Attack</h2>
+                    <br>
+                    <p class="m-1">Cross-Site Scripting (XSS) attacks inject malicious scripts into trusted websites, allowing attackers to steal sensitive data from users.</p>
+                    <br>
+                    <h5>The Anatomy of Attack</h5>
+                </div>
+                <div class="attack-line flex flex-center gap-1 flex-wrap p-relative">
+                    <div data-aos="zoom-in">
+                        <a href="#overview">
+                            <h2>01.</h2>
+                            <h4 class="mt-07">Overview & Types</h4>
+                        </a>
+                    </div>
+                    <div data-aos="zoom-in">
+                        <a href="#carried-out">
+                            <h2>02.</h2>
+                            <h4 class="mt-07">How it can be carried out</h4>
+                        </a>
+                    </div>
+                    <div data-aos="zoom-in">
+                        <a href="#statistics">
+                            <h2>03.</h2>
+                            <h4 class="mt-07">Statistics</h4>
+                        </a>
+                    </div>
+                    <div data-aos="zoom-in">
+                        <a href="#signs-compromise">
+                            <h2>04.</h2>
+                            <h4 class="mt-07">Signs of Compromise</h4>
+                        </a>
+                    </div>
+                    <div data-aos="zoom-in">
+                        <a href="#mitigation">
+                            <h2>05.</h2>
+                            <h4 class="mt-07">Mitigation</h4>
+                        </a>
+                    </div>
+                    <div data-aos="zoom-in">
+                        <a href="#notable-incident">
+                            <h2>06.</h2>
+                            <h4 class="mt-07">Notable <br> Incident</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section> 
+        <!--================Overview & Types=================-->
+        <section id="overview" class="attack-info">
+            <div class="container">
+                <div class="attack-data">
+                    <!--======================Overview=================-->
+                    <div class="w-50">
+                        <div class="attack-def mt-7" data-aos="fade-up">
+                            <div class="flex attack-subtitle gap-2">
+                                <hr>
+                                <h5>Overview & Types</h5>
+                            </div>
+                                <h2>What is Cross Site Scripting?</h2>
+                                <p>Cross-Site Scripting (XSS) is a client-side code injection attack where an attacker attaches malicious code to a legitimate website, which then executes when a victim loads the site. This code is typically added to a URL or posted on pages with user-generated content, like comment sections. When the malicious code is executed by the victim's browser, the attacker can steal sensitive data. XSS vulnerabilities are common in modern web development and have impacted major platforms like YouTube, Facebook, and Twitter. An example of XSS is an attacker posting JavaScript code in a comment that runs when other users view the page.</p>    
+                        </div>
+                    </div>
+                    <div class="w-50" data-aos="fade-down">
+                        <div class="custom-image">
+                            <img src="Images/home/phishing-def.jpg" alt="img">
+                        </div>
+                    </div>
+                </div> 
+                <!--=================Types==================-->
+                <div>
+                    <div class="attack-types gap-2">
+                        <div class="flex flex-wrap info-center" data-aos="zoom-in">
+                            <div class="w-66">
+                                <h2 class="mt-1">Types of Cross Site Scripting</h2>
+                            </div>
+                            <div class="flex flex-end">
+                                <a href="https://owasp.org/www-community/Types_of_Cross-Site_Scripting" 
+                                class="btn_hover2">Reference</a>
+                            </div>
+                        </div>
+                        <p class="mt-3"  data-aos="fade-up" data-aos-delay="200">The term "Cross-Site Scripting (XSS)" draws on the idea that attackers exploit trusted websites by "scripting" malicious code into them, similar to how unauthorized scripts can sneak into legitimate processes. In XSS attacks, the malicious code is often hidden in elements that seem harmless, such as URLs or user-generated content. This code is then executed when a victim interacts with the website. The methods attackers use for XSS depend on their target and objective. Some common examples of XSS attacks include:</p>
+                        <h4  data-aos="fade-up" data-aos-delay="200">Reflected XSS (AKA Non-Persistent or Type I)</h4>
+                        <p class="mt-1"  data-aos="fade-up" data-aos-delay="200">Reflected XSS occurs when user input is immediately returned by a web application in an error message, search result, or any other response that includes some or all of the input provided by the user as part of the request, without that data being made safe to render in the browser, and without permanently storing the user provided data. In some cases, the user provided data may never even leave the browser (see DOM Based XSS below).</p>
+
+                        <h4  data-aos="fade-up" data-aos-delay="200">Stored XSS (AKA Persistent or Type II)</h4>
+                        <p class="mt-1"  data-aos="fade-up" data-aos-delay="200">Stored XSS generally occurs when user input is stored on the target server, such as in a database, in a message forum, visitor log, comment field, etc. And then a victim is able to retrieve the stored data from the web application without that data being made safe to render in the browser. With the advent of HTML5, and other browser technologies, we can envision the attack payload being permanently stored in the victim’s browser, such as an HTML5 database, and never being sent to the server at all.</p>
+                            
+                            <h4  data-aos="fade-up" data-aos-delay="200">DOM Based XSS (AKA Type-0)</h4>
+                            <p class="mt-1" data-aos="fade-up" data-aos-delay="200">DOM Based XSS (or as it is called in some texts, “type-0 XSS”) is an XSS attack wherein the attack payload is executed as a result of modifying the DOM “environment” in the victim’s browser used by the original client side script, so that the client side code runs in an “unexpected” manner. That is, the page itself (the HTTP response that is) does not change, but the client side code contained in the page executes differently due to the malicious modifications that have occurred in the DOM environment.</p>
+
+                            <p class="mt-1" data-aos="fade-up" data-aos-delay="200">For years, most people thought of these (Stored, Reflected, DOM) as three different types of XSS, but in reality, they overlap. You can have both Stored and Reflected DOM Based XSS. You can also have Stored and Reflected Non-DOM Based XSS too, but that’s confusing, so to help clarify things, starting about mid 2012, the research community proposed and started using two new terms to help organize the types of XSS that can occur:</p>
+                            <h4 class="mt-1" data-aos="fade-up" data-aos-delay="200">Server XSS</h4>  
+                                <p class="mt-1" data-aos="fade-up" data-aos-delay="200">Server XSS occurs when untrusted user supplied data is included in an HTTP response generated by the server. The source of this data could be from the request, or from a stored location. As such, you can have both Reflected Server XSS and Stored Server XSS.
+
+                                    In this case, the entire vulnerability is in server-side code, and the browser is simply rendering the response and executing any valid script embedded in it.</p>
+                                
+                            <h4 data-aos="fade-up" data-aos-delay="200">Client XSS</h4>  
+                                <p class="mt-1" data-aos="fade-up" data-aos-delay="200">Client XSS occurs when untrusted user supplied data is used to update the DOM with an unsafe JavaScript call. A JavaScript call is considered unsafe if it can be used to introduce valid JavaScript into the DOM. This source of this data could be from the DOM, or it could have been sent by the server (via an AJAX call, or a page load). The ultimate source of the data could have been from a request, or from a stored location on the client or the server. As such, you can have both Reflected Client XSS and Stored Client XSS.
+
+                                    With these new definitions, the definition of DOM Based XSS doesn’t change. DOM Based XSS is simply a subset of Client XSS, where the source of the data is somewhere in the DOM, rather than from the Server.</p>
+                    </div>
+                </div>
+            </div>
+        </section>        
+        <!--============How it can be carried out?===========-->
+        <section id="carried-out" class="attack-carry">
+            <div class="container">
+                <div class="attack-performed">
+                    <div class="flex flex-wrap per-center" data-aos="fade-up">
+                        <div class="w-66">
+                            <div class="flex gap-1">
+                                <hr class="per-hr1 m-0">
+                                <h5>How it can be carried out</h5>
+                            </div>
+                            <h2>Execution of Cross Site Scripting Attack</h2>
+                            <p class="mt-1">Here's a breakdown of how Cross-Site Scripting (XSS) attacks are executed, from the initial vulnerability discovery to the eventual exploitation of the victim's data.</p>
+                        </div>
+                        <div class="flex w-33 flex-end">
+                            <a href="https://www.acunetix.com/websitesecurity/cross-site-scripting/" class="btn_hover2">Reference</a>
+                        </div>
+                        <!--Step1-->
+                        <div class="w-50 flex flex-col gap-2 mt-1">
+                            <div class="flex gap-1 ex-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="flex flex-center">
+                                    <h3>Step 1</h3>
+                                </div>
+                                <div>
+                                    <h4>Vulnerability Discovery</h4>
+                                    <p>The attacker identifies a vulnerable website or web application that does not properly validate or sanitize user inputs. This could be a comment section, form, or URL parameter where user-supplied data is processed by the server and displayed in the browser without proper encoding.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
+                            <div class="performed_mask">
+                                <figure>
+                                    <img src="Images/home/phishing-step1.png" alt="img">
+                                </figure>
+                            </div>
+                        </div>
+                        <!--Step2-->
+                        <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
+                            <div class="performed_mask">
+                                <figure>
+                                    <img src="Images/home/phishing-step2.png" alt="img">
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="w-50 flex flex-col gap-2 mt-1">
+                            <div class="flex gap-1 ex-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="flex flex-center">
+                                    <h3>Step 2</h3>
+                                </div>
+                                <div>
+                                    <h4>Crafting Malicious Script</h4>
+                                    <p>The attacker crafts a malicious script, typically designed to steal sensitive information like cookies, session tokens, or manipulate the web page content. Common XSS payloads include scripts that execute as soon as the victim loads the page or interacts with a part of the web application.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!--Step3-->
+                        <div class="w-50 flex flex-col gap-2 mt-1">
+                            <div class="flex gap-1 ex-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="flex flex-center">
+                                    <h3>Step 3</h3>
+                                </div>
+                                <div>
+                                    <h4>Injecting the Script</h4>
+                                    <p>The malicious script is injected into the vulnerable part of the website. Depending on the type of XSS vulnerability, the script can execute when a user loads a manipulated URL (reflected), be stored on the server and delivered to users (stored), or execute in response to DOM changes (DOM-based).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
+                            <div class="performed_mask">
+                                <figure>
+                                    <img src="Images/home/phishing-step3.png" alt="img">
+                                </figure>
+                            </div>
+                        </div>
+                        <!--Step4-->
+                        <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
+                            <div class="performed_mask">
+                                <figure>
+                                    <img src="Images/home/phishing-step4.png" alt="img">
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="w-50 flex flex-col gap-2 mt-1">
+                            <div class="flex gap-1 ex-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="flex flex-center">
+                                    <h3>Step 4</h3>
+                                </div>
+                                <div>
+                                    <h4>Triggering the Attack</h4>
+                                    <p>In reflected XSS, the attacker sends a crafted URL with the script to a victim via email or social engineering. In stored XSS, script executes automatically when users visit a page containing the malicious content. In DOM-based XSS, the script runs by dynamically modifying the page's content through JavaScript.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Step5 -->
+                        <div class="w-50 flex flex-col gap-2 mt-1">
+                            <div class="flex gap-1 ex-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="flex flex-center">
+                                    <h3>Step 5</h3>
+                                </div>
+                                <div>
+                                    <h4>Execution of Malicious Code</h4>
+                                    <p>Once the victim visits the page or clicks the malicious link, the injected script executes in their browser with the same privileges as legitimate code. It can steal sensitive information like session cookies and passwords, redirect the victim to a malicious site, or perform unwanted actions on their behalf.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
+                            <div class="performed_mask">
+                                <figure>
+                                    <img src="Images/home/phishing-step3.png" alt="img">
+                                </figure>
+                            </div>
+                        </div>
+                        <!--Step6-->
+                        <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
+                            <div class="performed_mask">
+                                <figure>
+                                    <img src="Images/home/phishing-step4.png" alt="img">
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="w-50 flex flex-col gap-2 mt-1">
+                            <div class="flex gap-1 ex-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="flex flex-center">
+                                    <h3>Step 6</h3>
+                                </div>
+                                <div>
+                                    <h4>Exfiltration of Data</h4>
+                                    <p>The stolen information is sent back to the attacker, often through a hidden form or request. The attacker can now use this sensitive information to easily hijack the user's session, impersonate the victim, or escalate the attack by gaining further access to the victim's account or other systems.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Step7 -->
+                        <div class="w-50 flex flex-col gap-2 mt-1">
+                            <div class="flex gap-1 ex-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="flex flex-center">
+                                    <h3>Step 7</h3>
+                                </div>
+                                <div>
+                                    <h4>Exploitation</h4>
+                                    <p>With the stolen session data or credentials, the attacker can easily hijack the victim's account to access sensitive data and perform unauthorized actions. The attacker can also maintain persistent access to the victim's session and target other users interacting with the compromised account.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
+                            <div class="performed_mask">
+                                <figure>
+                                    <img src="Images/home/phishing-step3.png" alt="img">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--====================Statistics===================-->
+        <section id="statistics" class="attack-statistics">
+            <div class="container">
+                <div class="flex flex-wrap stat-center" data-aos="fade-up">
+                    <div class="w-66">
+                        <div class="flex gap-1">
+                            <hr class="stat-hr1 m-0">
+                            <h5>Statistics</h5>
+                        </div>
+                        <h2>Global Phishing Attack Trends (2018-2023)</h2>
+                        <p class="mt-1">The bar chart illustrates the growing prevalence of phishing attacks over the past six years, highlighting the significant surge in cyber threats, particularly during the post-COVID era. The data underscores the increasing frequency of phishing attempts, reflecting the evolving tactics of cybercriminals targeting individuals and organizations worldwide.</p>
+                    </div>
+                    <div class="flex w-33 flex-end">
+                        <a href="/" class="btn_hover2">Reference</a>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="phishingPrevalenceChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="pie-charts" data-aos="fade-left">
+                    <div class="pie">
+                        <div class="outer">
+                            <div class="inner">
+                                <div id="number">
+                                    76%
+                                </div>
+                            </div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                            <defs>
+                                <linearGradient id="GradientColor">
+                                    <stop offset="0%" stop-color="#DA22FF" />
+                                    <stop offset="100%" stop-color="#9733EE" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                
+                    <div class="pie">
+                        <div class="outer">
+                            <div class="inner">
+                                <div id="number">
+                                    76%
+                                </div>
+                            </div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                            <defs>
+                                <linearGradient id="GradientColor">
+                                    <stop offset="0%" stop-color="#DA22FF" />
+                                    <stop offset="100%" stop-color="#9733EE" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                
+                    <div class="pie">
+                        <div class="outer">
+                            <div class="inner">
+                                <div id="number">
+                                    76%
+                                </div>
+                            </div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                            <defs>
+                                <linearGradient id="GradientColor">
+                                    <stop offset="0%" stop-color="#DA22FF" />
+                                    <stop offset="100%" stop-color="#9733EE" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                </div>
+                
+
+                <div class="bar-chart mt-4" data-aos="fade-right">
+                    <div class="container">
+                        <div class="flex flex-wrap stat-center">
+                            <div>
+                                <h2>Target Industries: Most Targeted by Phishing (Bar Graph)</h2>
+                                <p class="mt-1">Phishing attacks disproportionately target certain industries that hold valuable data or operate with sensitive information. This bar graph highlights the industries that faced the highest number of phishing attempts, showing how sectors like technology, finance, and healthcare are prime targets due to their lucrative nature for cybercriminals. By identifying which industries are most vulnerable, companies can focus on strengthening their cybersecurity defenses and awareness programs.</p>
+                            </div>
+                        </div>
+
+                    <div class="bar mt-3">
+                        <div class="bar-name">
+                            Financial Services
+                        </div>
+                        <div class="bar-progress">
+                            <div class="bar-per" per="28%" style="max-width:28%";></div>
+                        </div>
+                    </div>
+                    <div class="bar mt-3">
+                        <div class="bar-name">
+                            Retail and eCommerce
+                        </div>
+                        <div class="bar-progress">
+                            <div class="bar-per" per="21%" style="max-width:21%";></div>
+                        </div>
+                    </div>
+                    <div class="bar mt-3">
+                        <div class="bar-name">
+                            Technology
+                        </div>
+                        <div class="bar-progress">
+                            <div class="bar-per" per="19%" style="max-width:19%";></div>
+                        </div>
+                    </div>
+                    <div class="bar mt-3">
+                        <div class="bar-name">
+                            Healthcare
+                        </div>
+                        <div class="bar-progress">
+                            <div class="bar-per" per="15%" style="max-width:15%";></div>
+                        </div>
+                    </div>
+                    <div class="bar mt-3">
+                        <div class="bar-name">
+                            Government
+                        </div>
+                        <div class="bar-progress">
+                            <div class="bar-per" per="10%" style="max-width:10%";></div>
+                        </div>
+                    </div>
+                    <div class="bar mt-3">
+                        <div class="bar-name">
+                            Education
+                        </div>
+                        <div class="bar-progress">
+                            <div class="bar-per" per="7%" style="max-width:7%";></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================Signs of Compromise==============-->
+        <section id="signs-compromise" class="compro">
+            <div class="container">
+                <div class="flex compro-center" data-aos="fade-up">
+                    <div class="w-66">
+                        <div class="flex gap-1">
+                            <hr class="compro-hr1">
+                            <h5>Signs of Compromise</h5>
+                        </div>
+                        <h2 class="mt-1">Identifying XSS Attacks</h2>
+                        <p class="mt-1">XSS attacks often exhibit specific signs that can help you recognize them before becoming a victim. Below are the most common indicators of an XSS attempt—learn to identify them and protect your sensitive information.</p>
+                    </div>
+                    <div class="flex w-33 flex-end">
+                        <a href="https://www.acunetix.com/websitesecurity/cross-site-scripting/" class="btn_hover2">Reference</a>
+                    </div>
+                </div>
+                <div class="compro-slider flex mt-15" data-aos="fade-right" data-aos-delay="400">
+                    <div class="compro-img">
+                        <img src="Images/home/xsscompro1.jpg" alt="avatar">
+                        <div class="overlay">
+                            <div class="overlay_text">
+                                <h3>Unexpected Pop-ups</h3>
+                                <p>Malicious scripts can generate unexpected pop-up alerts or dialogs on the webpage.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="compro-img">
+                        <img src="Images/home/xsscompro2.webp" alt="avatar">
+                        <div class="overlay">
+                            <div class="overlay_text">
+                                <h3>Unusual Page Behavior</h3>
+                                <p>The webpage may exhibit strange behavior, such as redirecting to unfamiliar sites or changing content without user action.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="compro-img">
+                        <img src="Images/home/xsscompro3.jpg" alt="avatar">
+                        <div class="overlay">
+                            <div class="overlay_text">
+                                <h3>Altered Website Content</h3>
+                                <p>Content on the page may suddenly change, displaying unauthorized messages, ads, or links.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="compro-img">
+                        <img src="Images/home/xsscompro4.jpg" alt="avatar">
+                        <div class="overlay">
+                            <div class="overlay_text">
+                                <h3>Requests for Sensitive Information</h3>
+                                <p>You may encounter prompts or forms asking for sensitive information unexpectedly, such as passwords or credit card details.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="compro-img">
+                        <img src="Images/home/xsscompro5.jpg" alt="avatar">
+                        <div class="overlay">
+                            <div class="overlay_text">
+                                <h3>Browser Performance Issues</h3>
+                                <p>A compromised site can cause your browser to slow down, freeze, or crash frequently.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="compro-img">
+                        <img src="Images/home/xsscompro6.jpg" alt="avatar">
+                        <div class="overlay">
+                            <div class="overlay_text">
+                                <h3>Unfamiliar Browser Extensions</h3>
+                                <p>You might notice new browser extensions that you did not install, which could be a sign of malicious activity.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="compro-img">
+                        <img src="Images/home/xsscompro7.webp" alt="avatar">
+                        <div class="overlay">
+                            <div class="overlay_text">
+                                <h3>Increased Spam or Phishing Attempts</h3>
+                                <p>Receiving more spam or phishing emails after visiting a compromised site could indicate your data has been exposed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--===================Mitigation====================-->
+        <section id="mitigation" class="miti">
+            <div class="container">
+                <div class="miti-info">
+                    <div class="flex flex-wrap miti-center" data-aos="fade-up">
+                        <div class="w-66">
+                            <div class="flex gap-1">
+                                <hr class="miti-hr1 m-0">
+                                <h5>Mitigation</h5>
+                            </div>
+                            <h2>Security awareness training and organizational policies</h2>
+                        </div>
+                        <div class="flex w-33 flex-end">
+                            <a href="https://www.verizon.com/business/resources/articles/s/how-to-mitigate-cross-site-scripting/" class="btn_hover2">Reference</a>
+                        </div>
+                            <p class="mt-1">Because phishing scams target people, employees are often an organization's first and last line of defense against these attacks. Organizations can teach users how to recognize the signs of phishing attempts and respond to suspicious emails and text messages. This can include giving employees easy ways to report phishing attempts to the IT or security team.
+
+                                Organizations can also establish policies and practices that make it harder for phishers to succeed. 
+                                
+                                For example, organizations can forbid people from initiating monetary transfers over email. They can require employees to verify requests for money or information by contacting the requester through means other than those provided in the message. For example, employees can type a URL directly into their browser instead of clicking a link or call a colleague's office line instead of replying to a text from an unknown number.</p>
+                        
+                        <h2>Antiphishing tools and technology</h2>
+                        <p class="mt-1">Organizations can bolster employee training and reinforce company policies by implementing advanced security tools to detect phishing attempts. These tools can identify and flag suspicious emails or messages, preventing employees from inadvertently engaging with phishing scams. By doing so, organizations reduce the risk of human error and strengthen their defenses against hackers. Ultimately, these measures help thwart phishing attacks aimed at compromising networks and sensitive data.</p>
+                        
+                    </div>
+                    <div class="mitigation-card flex-wrap flex-sb" data-aos="fade-left">
+                        <div class="card rgb">
+                            <div class="xsscard-image1"></div>
+                            <div class="card-text">
+                                <h3>Train and maintain awareness</h3>
+                                <p>To keep your web application safe, everyone involved in building the web application must be aware of the risks associated with XSS vulnerabilities. You should provide suitable security training to all your developers, QA staff, DevOps, and SysAdmins. You can start by referring them to this page.</p>
+                            </div>
+                        </div>
+                        <div class="card rgb">
+                            <div class="xsscard-image2"></div>
+                            <div class="card-text">
+                                <h3>Don't trust any user input</h3>
+                                <p>Treat all user input as untrusted, regardless of its source. Any user input that is used as part of HTML output introduces a significant risk of an XSS attack. Treat input from authenticated and/or internal users with the same caution and scrutiny that you apply to public input to ensure comprehensive security.</p>
+                            </div>
+                        </div>
+                        <div class="card rgb">
+                            <div class="xsscard-image3"></div>
+                            <div class="card-text">
+                                <h3>Use escaping/encoding</h3>
+                                <p>Use an appropriate escaping and encoding technique depending on where user input is to be used, such as HTML escape, JavaScript escape, CSS escape, URL escape, etc. Always utilize existing libraries for escaping, and don’t write your own unless absolutely necessary to avoid introducing vulnerabilities.</p>
+                            </div>
+                        </div>
+                        <div class="card rgb">
+                            <div class="xsscard-image4"></div>
+                            <div class="card-text">
+                                <h3>Sanitize HTML</h3>
+                                <p>If the user input needs to contain HTML, you can’t escape/encode it because it would break valid tags. In such cases, use a trusted and verified library to parse and clean HTML. Choose the library depending on your development language, for example, HtmlSanitizer for .NET or SanitizeHelper for Ruby on Rails.</p>
+                            </div>
+                        </div>
+                        <div class="card rgb">
+                            <div class="xsscard-image5"></div>
+                            <div class="card-text">
+                                <h3>Set the HttpOnly flag</h3>
+                                <p>To effectively mitigate the consequences of a possible XSS vulnerability, it is essential to set the HttpOnly flag for cookies. By doing so, such cookies will not be accessible via client-side JavaScript, significantly reducing the risk of unauthorized access and session hijacking.</p>
+                            </div>
+                        </div>
+                        <div class="card rgb">
+                            <div class="xsscard-image6"></div>
+                            <div class="card-text">
+                                <h3>Use a Content Security Policy</h3>
+                                <p>To effectively mitigate the consequences of a possible XSS vulnerability, it is also crucial to use a Content Security Policy (CSP). CSP is an HTTP response header that allows you to declare the dynamic resources that are permitted to load, depending on the request source, thereby enhancing the overall security of your web application.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================Notable Incident=================-->
+        <section id="notable-incident" class="notable">
+            <div class="container">
+                <div class="incident-info">
+                    <div class="flex flex-wrap notable-center" data-aos="fade-up">
+                        <div class="w-66">
+                            <div class="flex gap-1">
+                                <hr class="notable-hr1 m-0">
+                                <h5>Notable Incident</h5>
+                            </div>
+                            <h2>Fortnite Data Breach Case Study</h2>
+                        </div>
+                        <div class="flex w-33 flex-end">
+                            <a href="https://portswigger.net/daily-swig/amp/xss-slip-up-exposed-fortnite-gamers-to-account-hijack " class="btn_hover2">Reference</a>
+                        </div>
+                        <h2 class="mt-1">Introduction</h2>
+                        <p class="mt-1">In January 2019, Fortnite, the immensely popular online multiplayer game by Epic Games, faced a significant cyberattack targeting its user base. The attack exploited a vulnerable, retired web page and a dangerous cross-site scripting (XSS) flaw. With over 200 million users at risk, the attackers aimed to gain unauthorized access to accounts, steal virtual currency, and potentially collect user conversations for further exploitation. This case study will explore how the attack unfolded, the security weaknesses that were exploited, and the valuable lessons learned in protecting gaming platforms from cyber threats.</p>
+                        <h2 class="mt-1">Background</h2>
+                        <p class="mt-1">Fortnite had already become a prime target for cybercriminals due to its massive popularity and valuable in-game currency, V-Bucks. By 2020, the game had 350 million registered users globally. The high-profile success of Fortnite, including several award wins like “eSports Game of the Year” and “Best Multiplayer Game,” made it particularly attractive to attackers seeking to exploit the game's virtual economy. As such, securing player data and transactions became increasingly important for Epic Games, though this incident exposed major vulnerabilities.</p>
+                        
+                        <h2 class=" mt-3">Incident Description</h2>
+                        <div class="incident mt-15">
+                            <div class="incident-event" data-content="In early 2019, attackers leveraged a retired web page linked to Epic Games that had an unchecked cross-site scripting (XSS) vulnerability. The vulnerability enabled attackers to inject malicious scripts into the web page, allowing them to compromise users' sessions without any need for direct interaction with victims.">
+                                <div class="incident-marker">1</div>
+                                <div class="incident-title">Exploitation of Cross-Site Scripting (XSS) Vulnerability</div>
+                                <div class="incident-details"></div>
+                            </div>
+                            <div class="incident-event" data-content="In combination with the XSS vulnerability, attackers took advantage of a flaw in Fortnite's single sign-on (SSO) system. This system, which allowed users to log in using their social media accounts like Facebook and Google, was left unsecured. By redirecting players through manipulated links, attackers were able to bypass authentication and access personal user data.">
+                                <div class="incident-marker">2</div>
+                                <div class="incident-title">Insecure Single Sign-On (SSO) Exploit</div>
+                                <div class="incident-details"></div>
+                            </div>
+                            <div class="incident-event" data-content="The combination of these vulnerabilities allowed attackers to perform account takeovers, where they could access stored user information, including billing details and conversation histories. Additionally, attackers could steal Fortnite’s in-game currency, V-Bucks, and sell it for real money on illicit platforms. This incident placed millions of user accounts at risk, with attackers potentially harvesting valuable information for future attacks.">
+                                <div class="incident-marker">3</div>
+                                <div class="incident-title">Potential Impact</div>
+                                <div class="incident-details"></div>
+                            </div>
+                            <div class="incident-event" data-content="The vulnerability was discovered by security researchers from Check Point in January 2019, who promptly alerted Epic Games. Epic Games quickly patched the flaws after the notification. Despite the swift resolution, the question remained whether these vulnerabilities had been previously exploited before discovery, potentially resulting in undetected losses or data breaches.">
+                                <div class="incident-marker">4</div>
+                                <div class="incident-title">Response by Epic Games</div>
+                                <div class="incident-details"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="mt-3">Response</h2>
+                    <h3 class="mt-15">Patch Deployment and User Awareness:</h3>
+                    <p class="mt-1">Epic Games reacted promptly to Check Point's findings by deploying patches to close the XSS and SSO vulnerabilities. The company issued statements reassuring users of the actions taken to secure their accounts, but no formal disclosure about potential losses or damages was made. Additionally, Epic Games encouraged users to enable two-factor authentication to enhance account security.</p>
+
+                    <h3>Improved Authentication Systems</h3>
+                    <p class="mt-1">Following the breach, Epic Games reviewed its authentication systems, enhancing security around the single sign-on (SSO) process. By strengthening login credentials and adding layers of encryption, they mitigated the chances of further exploitation of their sign-on methods.</p>
+
+                    <h3>Continued Monitoring for Potential Exploitation:</h3>
+                    <p class="mt-1">While there was no official confirmation of the vulnerabilities being exploited before the patch, security experts speculated that given the exposure, it was possible attackers could have used the XSS flaw to steal user data earlier. Epic Games has since implemented more rigorous monitoring for suspicious activity across accounts.</p>
+                   
+                    <h2 class="mt-3">Lessons Learned</h2>
+                    <h3 class="mt-15">Never Underestimate Vulnerabilities on Retired Web Pages</h3>
+                    <p class="mt-1">The incident demonstrated that 2FA alone is not sufficient to prevent sophisticated attacks. Nordea’s reliance on OTPs was exploited by malware, underscoring the importance of integrating multiple layers of security, including real-time behavioral analysis and machine learning to detect anomalies.</p>
+                    
+                    <h3>Cross-Site Scripting (XSS) Remains a Major Threat</h3>
+                    <p class="mt-1">Phishing remains a highly effective method for attackers to deceive users. This attack emphasized the need for continuous customer education about phishing threats, as well as regular updates on emerging cyber risks.</p>
+                    
+                    <h3>Strengthen SSO Mechanisms</h3>
+                    <p class="mt-1">While Nordea’s response was prompt, the case highlighted the need for enhanced fraud detection mechanisms. Banks must implement proactive monitoring systems capable of identifying unusual activity—such as large or suspicious transfers—before the fraud occurs.</p>
+
+                    <h3>Be Proactive in Communicating with Users</h3>
+                    <p class="mt-1">Although Epic Games quickly resolved the issues, there was limited transparency regarding whether or not accounts were compromised prior to the patch. Companies should be upfront about potential security risks and data exposure to maintain user trust.</p>
+                    
+                    <h3>In-Game Currencies Are Prime Targets</h3>
+                    <p class="mt-1">The attackers' aim of stealing Fortnite’s in-game currency, V-Bucks, demonstrates the increasing value of virtual economies. For games with such economies, securing transactions, ensuring encryption, and monitoring for unusual activity must be a top priority.</p>
+                    
+                    <h2 class="mt-3">Conclusion</h2>
+                    <p class="mt-1">The Fortnite data breach incident of 2019 underscores the importance of vigilance in securing both active and retired web systems, as well as ensuring that all authentication mechanisms are robust against exploitation. Even for immensely popular platforms, cybersecurity cannot be an afterthought. While Fortnite successfully addressed the vulnerabilities before further harm could be confirmed, this incident highlights the evolving and persistent nature of cyber threats targeting online gaming communities.</p>
+                    
+                    <div class="download-section mt-3">
+                        <h2>Download the Full Incident Report</h2>
+                        <a href="Notable Incident Nordea Bank phishing attack Case Study.pdf" download class="download-link">Download PDF</a>
+                    </div>                         
+                </div>
+            </div>
+        </section>      
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="vanilla-tilt.min.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelectorAll(".card"),{
+            glare: true,
+            reverse: true,
+            "max-glare": 0.1,
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Scroll animation lib -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 150,
+            duration: 1250,
+            once: true,
+        });
+    </script>
+
+    <!-- jquery js cdn -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <!-- jquery min js cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- slick carousel min js cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+        integrity="sha256-DHF4zGyjT7GOMPBwpeehwoey18z8uiz98G4PRu2lV0A=" crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
+
+

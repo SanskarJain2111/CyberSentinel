@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Simulation</title>
+    <script src="https://cdn.jsdelivr.net/npm/docx@7.0.1/build/docx.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> 
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Phishing Simulation</h1>
+    <button id="start-simulation">Start Simulation</button>
+    <div id="simulation-container" style="display: none;">
+        <div id="phishing-template"></div>
+        <button id="report-scam">Report as Scam</button>
+        <button id="generate-report">Generate Report</button>
+        <select id="file-format">
+            <option value="txt">TXT</option>
+            <option value="pdf">PDF</option>
+        </select>
+        <button id="download-report" style="display: none;">Download Report</button>
+        <div id="report"></div>
+    </div>
+</body>
+</html>
+
+
+
+

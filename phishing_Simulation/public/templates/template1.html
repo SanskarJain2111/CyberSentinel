@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>British Airways Travel Voucher - Gmail</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .gmail-container {
+            width: 100%;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eaeaea;
+        }
+        .gmail-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .gmail-logo {
+            display: flex;
+            align-items: center;
+        }
+        .gmail-logo img {
+            height: 24px;
+            margin-right: 10px;
+        }
+        .gmail-logo h1 {
+            font-size: 18px;
+            margin: 0;
+            color: #5f6368;
+        }
+        .gmail-search {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+        }
+        .gmail-search input {
+            width: 100%;
+            padding: 10px 40px 10px 20px;
+            border: 1px solid #eaeaea;
+            border-radius: 20px;
+            font-size: 14px;
+            background-color: #daebf9a2;
+        }
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            color: #5f6368;
+            font-size: 16px;
+        }
+        .gmail-header-icons {
+            display: flex;
+            align-items: center;
+        }
+        .gmail-header-icons,
+        .gmail-header-icons img,
+        .gmail-header-icons .gmail-profile {
+            height: 24px;
+            margin-left: 15px;
+            gap: 25px;
+        }
+        .gmail-header-icons .gmail-profile{
+            width: 30px;
+            height: 30px;
+            background-color: #57095b;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .gmail-header-icons .active-dot {
+            height: 12px;
+            width: 12px;
+            background-color: #34a853;
+            border-radius: 50%;
+            margin-right: 5px;
+            display: inline-block;
+        }
+        .gmail-header-icons .active-status {
+            font-size: 14px;
+            color: #5f6368;
+            margin-right: 10px;
+        }
+        .gmail-header h1 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .gmail-sidebar {
+            width: 200px;
+            float: left;
+            background-color: #ffffff;
+            padding: 10px;
+            box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+            border-right: 1px solid #eaeaea;
+        }
+        .gmail-sidebar h3 {
+            margin-top: 0;
+            font-size: 14px;
+            color: #5f6368;
+        }
+        .gmail-sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .gmail-sidebar li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #5f6368;
+            cursor: pointer;
+        }
+        .gmail-sidebar li:hover {
+            background-color: #f1f3f4;
+        }
+        .gmail-content {
+            margin-left: 220px;
+            padding: 20px;
+            max-height: 500px; 
+            overflow-y: auto; 
+        }
+        h2 {
+            color: #00457C;
+            font-size: 16px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #00457C;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .button:hover {
+            background-color: #002d5c;
+        }
+        .footer {
+            font-size: 12px;
+            color: #777;
+            margin-top: 20px;
+        }
+        .custom-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .custom-image img {
+            max-width: 100%;
+            height: auto;
+        }
+        .alert {
+            background-color: #ffeb3b;
+            color: #000;
+            padding: 10px;
+            margin: 20px 0;
+            border: 1px solid #ffc107;
+            border-radius: 4px;
+        }
+        .from_to{
+            color: #5f6368;
+        }
+        .gmail-footer {
+            background-color: #f1f3f4;
+            padding: 10px;
+            font-size: 12px;
+            color: #818181;
+            border-top: 1px solid #eaeaea;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="gmail-container">
+        <div class="gmail-header">
+            <div class="gmail-logo">
+                <img src="templateImages/mslogo.webp" alt="Gmail Logo">
+                <h1>Mail service</h1>
+            </div>
+            <div class="gmail-search">
+                <input type="text" placeholder="Search mail" id="search-input">
+                <span class="fa-solid fa-magnifying-glass search-icon"></span>
+            </div>
+            
+            <div class="gmail-header-icons">
+                <div class="active-status">
+                    <span class="active-dot"></span>
+                    <span>Active</span>
+                </div>
+                <i class="fa-regular fa-circle-question"></i>
+                <i class="fa-solid fa-gear"></i>
+                <img src="templateImages/grid-icon.png" alt="img">
+                <div class="gmail-profile"></div>
+            </div>
+        </div>
+        <div class="gmail-sidebar">
+            <h3>Mail</h3>
+            <ul>
+                <li><span class="fa-solid fa-inbox"></span> Inbox <span> 12 </span></li>
+                <li><span class="fa-regular fa-star"></span> Starred</li>
+                <li><span class="fa-regular fa-clock"></span> Snoozed</li>
+                <li><span class="fa-regular fa-paper-plane"></span> Sent Mail</li>
+                <li><span class="fa-regular fa-file"></span> Drafts <span>(3)</span></li>
+                <li><span class="fa-solid fa-ban"></span> Spam</li>
+                <li><span class="fa-solid fa-trash"></span> Trash</li>
+            </ul>
+            <h3>Labels</h3>
+            <ul>
+                <li>Work</li>
+                <li>Business</li>
+                <li>Family</li>
+                <li>Friends</li>
+            </ul>
+        </div>
+        <div class="gmail-content">
+            <h2>£300 Voucher for Your Next British Airways Flight</h2>
+            <p>British Airways <span class="from_to">( british-airways@alerting-services[.]com )</span></p>
+            <p class="from_to">to john.doe@mybusiness.com</p>
+            <p>Date: <strong>October 7, 2024</strong></p>
+            <div class="custom-image">
+                <img src="templateImages/template1Img.png" alt="img">
+            </div>
+            <p>Hi John,</p>
+            <p>We hope this message finds you well.</p>
+            <p>We are pleased to inform you that a <strong>£300 British Airways travel voucher</strong> has been issued to you, which can be used on any of our future flights. This voucher has been provided following a recent flight change that did not meet our usual high standards. After a review by the <strong>Civil Aviation Authority (CAA)</strong>, it was determined that the notice provided fell short of the expected minimum level.</p>
+            <div class="alert">
+                Important: Please download your voucher as soon as possible. The offer expires in 7 days!
+            </div>
+            <p>To make things right, we’ve issued this voucher, which you can use for your next British Airways booking. You will find the voucher attached to this email. Alternatively, you can download it directly from your British Airways account by logging in here:</p>
+            <a href="/phishing_Simulation/login/fake1.html" class="button">Log in to Your Account</a>
+            <p>The voucher can be redeemed easily online or through our customer service team.</p>
+            <p>Thank you for your understanding, and we look forward to welcoming you on board again soon.</p>
+            <div class="footer">
+                <p><strong>Disclaimer:</strong><br>The £300 voucher is transferable to another British Airways Executive Club member but is not redeemable for cash. The voucher must be used within the validity period stated and can only be applied toward British Airways flights. Any unused balance will not be refunded. Terms and conditions apply.</p>
+            </div>
+        </div>
+    </div>
+    <div class="gmail-footer"></div>
+</body>
+</html>

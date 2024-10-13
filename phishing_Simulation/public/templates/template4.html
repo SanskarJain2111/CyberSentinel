@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Company Has Sent You Credits!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .gmail-container {
+            width: 100%;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eaeaea;
+        }
+        .gmail-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .gmail-logo {
+            display: flex;
+            align-items: center;
+        }
+        .gmail-logo img {
+            height: 24px;
+            margin-right: 10px;
+        }
+        .gmail-logo h1 {
+            font-size: 18px;
+            margin: 0;
+            color: #5f6368;
+        }
+        .gmail-search {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+        }
+        .gmail-search input {
+            width: 100%;
+            padding: 10px 40px 10px 20px;
+            border: 1px solid #eaeaea;
+            border-radius: 20px;
+            font-size: 14px;
+            background-color: #daebf9a2;
+        }
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            color: #5f6368;
+            font-size: 16px;
+        }
+        .gmail-header-icons {
+            display: flex;
+            align-items: center;
+        }
+        .gmail-header-icons,
+        .gmail-header-icons img,
+        .gmail-header-icons .gmail-profile {
+            height: 24px;
+            margin-left: 15px;
+            gap: 25px;
+        }
+        .gmail-header-icons .gmail-profile{
+            width: 30px;
+            height: 30px;
+            background-color: #57095b;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .gmail-header-icons .active-dot {
+            height: 12px;
+            width: 12px;
+            background-color: #34a853;
+            border-radius: 50%;
+            margin-right: 5px;
+            display: inline-block;
+        }
+        .gmail-header-icons .active-status {
+            font-size: 14px;
+            color: #5f6368;
+            margin-right: 10px;
+        }
+        .gmail-header h1 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .gmail-sidebar {
+            width: 200px;
+            float: left;
+            background-color: #ffffff;
+            padding: 10px;
+            box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+            border-right: 1px solid #eaeaea;
+        }
+        .gmail-sidebar h3 {
+            margin-top: 0;
+            font-size: 14px;
+            color: #5f6368;
+        }
+        .gmail-sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .gmail-sidebar li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #5f6368;
+            cursor: pointer;
+        }
+        .gmail-sidebar li:hover {
+            background-color: #f1f3f4;
+        }
+        .gmail-content {
+            margin-left: 220px;
+            padding: 10px 300px 0px 300px;
+            max-height: 500px; 
+            overflow-y: auto; 
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #0070ba;
+        }
+        .link {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 15px;
+            background: #0070ba;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #ffffff;
+            background-color: #000;
+            padding: 20px 20px 20px 20px;
+            line-height: 20px;
+        }
+        .transaction-info {
+            border-top: 1px solid #000;
+            padding: 20px 20px 20px 20px;
+            margin: 20px 0;
+            background-color: #eceaea;
+        }
+        .amount {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: right;
+        }
+        .two-column {
+            display: flex;
+            justify-content: space-between; 
+            margin-top: 80px;
+            padding: 20px 20px 20px 20px;
+            background-color: #eceaea;
+        }
+        .column {
+            width: 48%; 
+        }
+        hr {
+            border: 1px solid #000; 
+            margin: 10px 0; 
+        }
+        .gmail-footer {
+            background-color: #f1f3f4;
+            padding: 10px;
+            font-size: 12px;
+            color: #818181;
+            border-top: 1px solid #eaeaea;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="gmail-container">
+        <div class="gmail-header">
+            <div class="gmail-logo">
+                <img src="templateImages/mslogo.webp" alt="Gmail Logo">
+                <h1>Mail service</h1>
+            </div>
+            <div class="gmail-search">
+                <input type="text" placeholder="Search mail" id="search-input">
+                <span class="fa-solid fa-magnifying-glass search-icon"></span>
+            </div>
+            
+            <div class="gmail-header-icons">
+                <div class="active-status">
+                    <span class="active-dot"></span>
+                    <span>Active</span>
+                </div>
+                <i class="fa-regular fa-circle-question"></i>
+                <i class="fa-solid fa-gear"></i>
+                <img src="templateImages/grid-icon.png" alt="img">
+                <div class="gmail-profile"></div>
+            </div>
+        </div>
+        <div class="gmail-sidebar">
+            <h3>Mail</h3>
+            <ul>
+                <li><span class="fa-solid fa-inbox"></span> Inbox <span> 12 </span></li>
+                <li><span class="fa-regular fa-star"></span> Starred</li>
+                <li><span class="fa-regular fa-clock"></span> Snoozed</li>
+                <li><span class="fa-regular fa-paper-plane"></span> Sent Mail</li>
+                <li><span class="fa-regular fa-file"></span> Drafts <span>(3)</span></li>
+                <li><span class="fa-solid fa-ban"></span> Spam</li>
+                <li><span class="fa-solid fa-trash"></span> Trash</li>
+            </ul>
+            <h3>Labels</h3>
+            <ul>
+                <li>Work</li>
+                <li>Business</li>
+                <li>Family</li>
+                <li>Friends</li>
+            </ul>
+        </div>
+<div class="gmail-content">
+    <div class="custom-image">
+        <img src="templateImages/template4logoImg.png" alt="img">
+    </div>
+    <div class="custom-image">
+        <img src="templateImages/template4Img.png" alt="img">
+    </div>
+    <h1>Your Company Has Sent You Credits!</h1>
+    <p><strong>Message:</strong> Thank you John for your outstanding performance!</p>
+    
+    <a href="/phishing_Simulation/login/fake4.html" class="link">Claim Udemy Credits</a>
+    
+    <div class="transaction-info">
+        <h3>Transaction Type:</h3>
+        <p>Credits</p>
+        <h3>Transaction Number:</h3>
+        <p>AD-6847633259582368S6D4B5433</p>
+        <h3>Credit Amount:</h3>
+        <hr> 
+        <div class="amount">USD$200.00</div>
+    </div>
+    
+    <div class="two-column">
+        <div class="column">
+            <strong>Purchased By:</strong><br>
+            <hr>
+            Contoso Corp
+            <p><strong>Payment Method:</strong> Credit Card</p>
+        </div>
+        <div class="column">
+            <strong>Sold By:</strong><br>
+            <hr>
+            Udemy, Inc.<br>
+            600 Harrison Street, 3rd Floor<br>
+            San Francisco, CA 94107, US
+        </div>
+    </div>
+
+    
+    
+    <h3>Need Help?</h3>
+    <p><a href="#">Visit our Help Center for support.</a></p>
+    
+    <div class="footer">
+        <p>Udemy Logo</p>
+        <p>Download our app and learn anywhere</p>
+        <p>About Us | Udemy Business</p>
+        <p>You are receiving this email because you signed up on Udemy.com with this email address.</p>
+        <hr class="foot">
+        <p>Support | Privacy Terms</p>
+        <p>Udemy.com 600 Harrison Street, 3rd Floor San Francisco, CA 94107 USA</p>
+    </div>
+</div>
+<div class="gmail-footer">
+</div>
+</body>
+</html>
