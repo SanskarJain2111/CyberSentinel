@@ -248,7 +248,8 @@ a {
 
 /* <!--================Header Section==================--> */
 .header-index{
-    background-image: url('../Images/home/homepagebg.avif');
+    /* background-image: url('../Images/home/homepagebg.avif'); */
+    /* background-color: #000525; */
     background-position: center center;
     background-size: cover;
 }
@@ -578,6 +579,62 @@ aside .simulation{
     transition: all 0.3s ease;
     text-transform: uppercase;
 }
+.homepage{
+    padding: 10px 0;
+    margin-top: -2px;
+}
+.home{
+    display: flex;
+    /* background-color: #020E1A; */
+    background: linear-gradient(11deg, #1a0218a8 0.01%, #020e1aa1 40%), url('../Images/home/homepagebg.avif');
+    height: 100vh;
+    color: #fff;
+    min-height: 500px;
+    background-size: cover;
+    font-family: 'Ubuntu', sans-serif;
+    background-position: center center;
+}
+.home .max-width{
+  width: 100%;
+  display: flex;
+}
+.home .max-width .row{
+  margin-right: 0;
+}
+.home .home-content .text-1{
+    font-size: 27px;
+}
+.home .home-content .text-2{
+    font-size: 45px;
+    font-weight: 600;
+    margin-left: -3px;
+    width: 80%;
+}
+.home .home-content .text-3{
+    font-size: 24px;
+    margin: 5px 0;
+    width: 80%;
+}
+.home .home-content .text-3 span{
+    color: crimson;
+    font-weight: 500;
+}
+.home .home-content a{
+    display: inline-block;
+    background: #66EEFF;
+    color: #000000;
+    font-size: 25px;
+    padding: 12px 36px;
+    margin-top: 20px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: 2px solid #66EEFF;
+    transition: all 0.3s ease;
+}
+.home .home-content a:hover{
+    color: #66EEFF;
+    background: none;
+}
 
 
 /* <!--================Phishing Attack==================--> */
@@ -586,7 +643,7 @@ aside .simulation{
     background-image: linear-gradient(180deg , #250221e7 0.01%, #080117e5 40%), url('../Images/bg/attack-bg4.jpg');
     background-size: cover;
     background-position: center center;
-    padding: 70px 0;
+    padding: 10px 0;
     margin-top: -2px;
 }
 
