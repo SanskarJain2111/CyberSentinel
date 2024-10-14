@@ -24,7 +24,6 @@
 
 <body>
     <div class="site-wrapper">
-        
         <!--================Phishing Attack==================-->
         <section class="attack">
             <%- include('header') %>
@@ -635,6 +634,84 @@
         });
     </script>
 
+    <script>
+        window.onload = function() {
+    var chartRendered = false; // To prevent multiple re-renders
+    
+    var config = {
+        type: 'bar',
+        data: {
+            labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+            datasets: [{
+                label: 'Number of Phishing Attacks',
+                data: [12000, 15000, 25000, 40000, 45000, 50000],
+                backgroundColor: 'rgba(60, 196, 196, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Number of Attacks',
+                        color: '#bcbcbc',
+                        font: {
+                            weight: 'bold',
+                            size: 13
+                        }
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Years',
+                        color: '#bcbcbc',
+                        font: {
+                            weight: 'bold',
+                            size: 13
+                        }
+                    }
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Prevalence of Phishing Attacks (2018-2023)',
+                    color: '#bcbcbc',
+                    font: {
+                        size: 20
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                    mode: 'index',
+                    intersect: false,
+                }
+            }
+        }
+    };
+
+    var observer = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting && !chartRendered) {
+            chartRendered = true; // Ensure chart renders only once
+            var ctx = document.getElementById('phishingPrevalenceChart').getContext('2d');
+            new Chart(ctx, config);
+        }
+    }, {
+        threshold: 0.5 // Chart will animate when 50% of it is visible
+    });
+
+    // Target the chart container
+    var chartContainer = document.querySelector('.chart-container');
+    observer.observe(chartContainer);
+};
+
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 
@@ -649,9 +726,9 @@
     </script>
 
     <!-- jquery js cdn -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
         integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- jquery min js cdn -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="

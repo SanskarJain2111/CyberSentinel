@@ -26,6 +26,7 @@
     <div class="site-wrapper">
         <!--================Cross Site Scripting Attack==================-->
         <section class="attack">
+            <%- include('header') %>
             <div class="container p-relative">
                 <div class="attack-para text-center" data-aos="zoom-in">
                     <h2 class="mt-15">Cross Site Scripting Attack</h2>
@@ -87,11 +88,12 @@
                             </div>
                                 <h2>What is Cross Site Scripting?</h2>
                                 <p>Cross-Site Scripting (XSS) is a client-side code injection attack where an attacker attaches malicious code to a legitimate website, which then executes when a victim loads the site. This code is typically added to a URL or posted on pages with user-generated content, like comment sections. When the malicious code is executed by the victim's browser, the attacker can steal sensitive data. XSS vulnerabilities are common in modern web development and have impacted major platforms like YouTube, Facebook, and Twitter. An example of XSS is an attacker posting JavaScript code in a comment that runs when other users view the page.</p>    
+                                <p style="color: #878686;">(The image is clickable and will redirect to the reference.)</p>
                         </div>
                     </div>
                     <div class="w-50" data-aos="fade-down">
                         <div class="custom-image">
-                            <img src="Images/home/phishing-def.jpg" alt="img">
+                            <img src="Images/home/xssOverview.jpg" alt="img">
                         </div>
                     </div>
                 </div> 
@@ -162,7 +164,7 @@
                         <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
                             <div class="performed_mask">
                                 <figure>
-                                    <img src="Images/home/phishing-step1.png" alt="img">
+                                    <img src="Images/home/xxsstep1.jpg" alt="img" style="height: 300px;">
                                 </figure>
                             </div>
                         </div>
@@ -170,7 +172,7 @@
                         <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
                             <div class="performed_mask">
                                 <figure>
-                                    <img src="Images/home/phishing-step2.png" alt="img">
+                                    <img src="Images/home/xssstep2.webp" alt="img" style="height: 300px;">
                                 </figure>
                             </div>
                         </div>
@@ -201,7 +203,7 @@
                         <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
                             <div class="performed_mask">
                                 <figure>
-                                    <img src="Images/home/phishing-step3.png" alt="img">
+                                    <img src="Images/home/xssstep3.webp" alt="img" style="height: 300px;">
                                 </figure>
                             </div>
                         </div>
@@ -209,7 +211,7 @@
                         <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
                             <div class="performed_mask">
                                 <figure>
-                                    <img src="Images/home/phishing-step4.png" alt="img">
+                                    <img src="Images/home/xssstep4.jpg" alt="img" style="height: 300px;">
                                 </figure>
                             </div>
                         </div>
@@ -239,7 +241,7 @@
                         <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
                             <div class="performed_mask">
                                 <figure>
-                                    <img src="Images/home/phishing-step3.png" alt="img">
+                                    <img src="Images/home/xssstep5.webp" alt="img" style="height: 300px;">
                                 </figure>
                             </div>
                         </div>
@@ -247,7 +249,7 @@
                         <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
                             <div class="performed_mask">
                                 <figure>
-                                    <img src="Images/home/phishing-step4.png" alt="img">
+                                    <img src="Images/home/xssstep6.jpg" alt="img" style="height: 300px;">
                                 </figure>
                             </div>
                         </div>
@@ -277,7 +279,7 @@
                         <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
                             <div class="performed_mask">
                                 <figure>
-                                    <img src="Images/home/phishing-step3.png" alt="img">
+                                    <img src="Images/home/xssstep7.jpg" alt="img" style="height: 300px;">
                                 </figure>
                             </div>
                         </div>
@@ -298,10 +300,10 @@
                         <p class="mt-1">The bar chart illustrates the growing prevalence of phishing attacks over the past six years, highlighting the significant surge in cyber threats, particularly during the post-COVID era. The data underscores the increasing frequency of phishing attempts, reflecting the evolving tactics of cybercriminals targeting individuals and organizations worldwide.</p>
                     </div>
                     <div class="flex w-33 flex-end">
-                        <a href="/" class="btn_hover2">Reference</a>
+                        <a href="https://www.verizon.com/about/news/2023-data-breach-investigations-report" class="btn_hover2">Reference</a>
                     </div>
                     <div class="chart-container">
-                        <canvas id="phishingPrevalenceChart"></canvas>
+                        <canvas id="xssChart"></canvas>
                     </div>
                 </div>
 
@@ -379,7 +381,7 @@
                             Financial Services
                         </div>
                         <div class="bar-progress">
-                            <div class="bar-per" per="28%" style="max-width:28%";></div>
+                            <div class="bar-per" per="25%" style="max-width:25%";></div>
                         </div>
                     </div>
                     <div class="bar mt-3">
@@ -387,7 +389,7 @@
                             Retail and eCommerce
                         </div>
                         <div class="bar-progress">
-                            <div class="bar-per" per="21%" style="max-width:21%";></div>
+                            <div class="bar-per" per="20%" style="max-width:20%";></div>
                         </div>
                     </div>
                     <div class="bar mt-3">
@@ -395,7 +397,7 @@
                             Technology
                         </div>
                         <div class="bar-progress">
-                            <div class="bar-per" per="19%" style="max-width:19%";></div>
+                            <div class="bar-per" per="15%" style="max-width:15%";></div>
                         </div>
                     </div>
                     <div class="bar mt-3">
@@ -403,7 +405,7 @@
                             Healthcare
                         </div>
                         <div class="bar-progress">
-                            <div class="bar-per" per="15%" style="max-width:15%";></div>
+                            <div class="bar-per" per="10%" style="max-width:10%";></div>
                         </div>
                     </div>
                     <div class="bar mt-3">
@@ -411,7 +413,7 @@
                             Government
                         </div>
                         <div class="bar-progress">
-                            <div class="bar-per" per="10%" style="max-width:10%";></div>
+                            <div class="bar-per" per="8%" style="max-width:8%";></div>
                         </div>
                     </div>
                     <div class="bar mt-3">
@@ -419,7 +421,7 @@
                             Education
                         </div>
                         <div class="bar-progress">
-                            <div class="bar-per" per="7%" style="max-width:7%";></div>
+                            <div class="bar-per" per="5%" style="max-width:5%";></div>
                         </div>
                     </div>
                 </div>
@@ -694,6 +696,85 @@
             duration: 1250,
             once: true,
         });
+    </script>
+
+    <script>
+        window.onload = function() {
+    var chartRendered = false; // To prevent multiple re-renders
+
+    var config = {
+        type: 'bar',
+        data: {
+            labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+            datasets: [{
+                label: 'Number of XSS Attacks',
+                data: [4000, 5000, 7000, 9000, 10000, 12000], // Example real data
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Number of Attacks',
+                        color: '#bcbcbc',
+                        font: {
+                            weight: 'bold',
+                            size: 13
+                        }
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Years',
+                        color: '#bcbcbc',
+                        font: {
+                            weight: 'bold',
+                            size: 13
+                        }
+                    }
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Prevalence of XSS Attacks (2018-2023)',
+                    color: '#bcbcbc',
+                    font: {
+                        size: 20
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                    mode: 'index',
+                    intersect: false,
+                }
+            }
+        }
+    };
+
+    var observer = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting && !chartRendered) {
+            chartRendered = true; // Ensure chart renders only once
+            var ctx = document.getElementById('xssChart').getContext('2d');
+            new Chart(ctx, config);
+        }
+    }, {
+        threshold: 0.5 // Chart will animate when 50% of it is visible
+    });
+
+    // Target the chart container
+    var chartContainer = document.querySelector('.chart-container');
+    observer.observe(chartContainer);
+};
+
     </script>
 
     <!-- jquery js cdn -->

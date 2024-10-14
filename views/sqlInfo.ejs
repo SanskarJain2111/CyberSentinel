@@ -24,6 +24,7 @@
     <div class="site-wrapper">
         <!--================SQL Injection Attack==================-->
         <section class="attack">
+            <%- include('header') %>
             <div class="container p-relative">
                 <div class="attack-para text-center" data-aos="zoom-in">
                     <h2 class="mt-15">SQL Injection Attack</h2>
@@ -393,7 +394,7 @@
                         <a href="/" class="btn_hover2">Reference</a>
                     </div>
                     <div class="chart-container">
-                        <canvas id="phishingPrevalenceChart"></canvas>
+                        <canvas id="sqlInjectionChart"></canvas>
                     </div>
                 </div>
 
@@ -477,7 +478,7 @@
                                 Financial Services
                             </div>
                             <div class="bar-progress">
-                                <div class="bar-per" per="28%" style="max-width:28%" ;></div>
+                                <div class="bar-per" per="35%" style="max-width:35%" ;></div>
                             </div>
                         </div>
                         <div class="bar mt-3">
@@ -485,7 +486,7 @@
                                 Retail and eCommerce
                             </div>
                             <div class="bar-progress">
-                                <div class="bar-per" per="21%" style="max-width:21%" ;></div>
+                                <div class="bar-per" per="25%" style="max-width:25%" ;></div>
                             </div>
                         </div>
                         <div class="bar mt-3">
@@ -493,7 +494,7 @@
                                 Technology
                             </div>
                             <div class="bar-progress">
-                                <div class="bar-per" per="19%" style="max-width:19%" ;></div>
+                                <div class="bar-per" per="18%" style="max-width:18%" ;></div>
                             </div>
                         </div>
                         <div class="bar mt-3">
@@ -501,7 +502,7 @@
                                 Healthcare
                             </div>
                             <div class="bar-progress">
-                                <div class="bar-per" per="15%" style="max-width:15%" ;></div>
+                                <div class="bar-per" per="12%" style="max-width:12%" ;></div>
                             </div>
                         </div>
                         <div class="bar mt-3">
@@ -509,7 +510,7 @@
                                 Government
                             </div>
                             <div class="bar-progress">
-                                <div class="bar-per" per="10%" style="max-width:10%" ;></div>
+                                <div class="bar-per" per="7%" style="max-width:7%" ;></div>
                             </div>
                         </div>
                         <div class="bar mt-3">
@@ -517,7 +518,7 @@
                                 Education
                             </div>
                             <div class="bar-progress">
-                                <div class="bar-per" per="7%" style="max-width:7%" ;></div>
+                                <div class="bar-per" per="3%" style="max-width:3%" ;></div>
                             </div>
                         </div>
                     </div>
@@ -800,9 +801,7 @@
 
 
 
-
-
-
+    <script src="script.js"></script>
     <script src="vanilla-tilt.min.js"></script>
     <script>
         VanillaTilt.init(document.querySelectorAll(".card"), {
@@ -812,8 +811,90 @@
         });
     </script>
 
+    <!-- SQL Statistics 1 -->
+    <script>
+         window.onload = function() {
+        var chartRendered = false; // To prevent multiple re-renders
+
+        var config = {
+            type: 'bar',
+            data: {
+                labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+                datasets: [{
+                    label: 'Number of SQL Injection Attacks',
+                    data: [10000, 12000, 15000, 25000, 30000, 35000], // Example data
+                    backgroundColor: 'rgba(60, 196, 196, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Attacks',
+                            color: '#bcbcbc',
+                            font: {
+                                weight: 'bold',
+                                size: 13
+                            }
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Years',
+                            color: '#bcbcbc',
+                            font: {
+                                weight: 'bold',
+                                size: 13
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Prevalence of SQL Injection Attacks (2018-2023)',
+                        color: '#bcbcbc',
+                        font: {
+                            size: 20
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        mode: 'index',
+                        intersect: false,
+                    }
+                }
+            }
+        };
+
+        var observer = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting && !chartRendered) {
+                chartRendered = true; // Ensure chart renders only once
+                var ctx = document.getElementById('sqlInjectionChart').getContext('2d');
+                new Chart(ctx, config);
+            }
+        }, {
+            threshold: 0.5 // Chart will animate when 50% of it is visible
+        });
+
+        // Target the chart container
+        var chartContainer = document.querySelector('.chart-container');
+        observer.observe(chartContainer);
+    };
+    
+
+
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
+    
 
     <!-- Scroll animation lib -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

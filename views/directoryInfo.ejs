@@ -24,6 +24,7 @@
     <div class="site-wrapper">
         <!--================SQL Injection Attack==================-->
         <section class="attack">
+            <%- include('header') %>
             <div class="container p-relative">
                 <div class="attack-para text-center" data-aos="zoom-in">
                     <h2 class="mt-15">Directory Traversal Attack</h2>
@@ -96,7 +97,7 @@
                     <div class="w-50" data-aos="fade-down">
                         <div class="custom-image">
                             <a href="https://www.imperva.com/learn/application-security/directory-traversal/">
-                                <img src="Images/home/sqlOverview.webp" alt="img">
+                                <img src="Images/home/directoryOverview.webp" alt="img">
                             </a>
                         </div>
                     </div>
@@ -176,7 +177,7 @@
                         <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
                             <div class="performed_mask">
                                 <figure>
-                                    <img src="Images/home/sqlstep1.webp" alt="img" style="height: 300px;">
+                                    <img src="Images/home/directoryStep1.webp" alt="img" style="height: 300px;">
                                 </figure>
                             </div>
                         </div>
@@ -184,7 +185,7 @@
                         <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
                             <div class="performed_mask">
                                 <figure>
-                                    <img src="Images/home/sqlstep6.webp" alt="img" style="height: 300px;">
+                                    <img src="Images/home/directoryStep2.webp" alt="img" style="height: 300px;">
                                 </figure>
                             </div>
                         </div>
@@ -218,7 +219,7 @@
                         <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
                             <div class="performed_mask">
                                 <figure>
-                                    <img src="Images/home/sqlstep2.webp" alt="img" style="height: 300px;">
+                                    <img src="Images/home/directoryStep3.webp" alt="img" style="height: 300px;">
                                 </figure>
                             </div>
                         </div>
@@ -226,7 +227,7 @@
                         <div class="w-50 p-relative flex flex-center" data-aos="zoom-in">
                             <div class="performed_mask">
                                 <figure>
-                                    <img src="Images/home/sqlstep3.webp" alt="img" style="height: 300px;">
+                                    <img src="Images/home/directoryStep4.jpg" alt="img" style="height: 300px;">
                                 </figure>
                             </div>
                         </div>
@@ -265,7 +266,7 @@
                         <a href="/" class="btn_hover2">Reference</a>
                     </div>
                     <div class="chart-container">
-                        <canvas id="phishingPrevalenceChart"></canvas>
+                        <canvas id="directoryChart"></canvas>
                     </div>
                 </div>
 
@@ -683,6 +684,85 @@
             "max-glare": 0.1,
         });
     </script>
+
+<script>
+    window.onload = function() {
+var chartRendered = false; // To prevent multiple re-renders
+
+var config = {
+    type: 'bar',
+    data: {
+        labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+            label: 'Number of XSS Attacks',
+            data: [4000, 5000, 7000, 9000, 10000, 12000], // Example real data
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1,
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Number of Attacks',
+                    color: '#bcbcbc',
+                    font: {
+                        weight: 'bold',
+                        size: 13
+                    }
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Years',
+                    color: '#bcbcbc',
+                    font: {
+                        weight: 'bold',
+                        size: 13
+                    }
+                }
+            }
+        },
+        plugins: {
+            title: {
+                display: true,
+                text: 'Prevalence of XSS Attacks (2018-2023)',
+                color: '#bcbcbc',
+                font: {
+                    size: 20
+                }
+            },
+            tooltip: {
+                enabled: true,
+                mode: 'index',
+                intersect: false,
+            }
+        }
+    }
+};
+
+var observer = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting && !chartRendered) {
+        chartRendered = true; // Ensure chart renders only once
+        var ctx = document.getElementById('directoryChart').getContext('2d');
+        new Chart(ctx, config);
+    }
+}, {
+    threshold: 0.5 // Chart will animate when 50% of it is visible
+});
+
+// Target the chart container
+var chartContainer = document.querySelector('.chart-container');
+observer.observe(chartContainer);
+};
+
+</script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
