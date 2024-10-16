@@ -579,6 +579,15 @@ aside .simulation{
     transition: all 0.3s ease;
     text-transform: uppercase;
 }
+
+
+.page{
+    background: linear-gradient(11deg, #1a0218a8 0.01%, #020e1aa1 40%), url('../Images/home/homepagebg.avif');
+    background-size: cover;
+    background-position: center center;
+    overflow-y: hidden !important;
+}
+
 .homepage{
     padding: 10px 0;
     margin-top: -2px;
@@ -586,13 +595,14 @@ aside .simulation{
 .home{
     display: flex;
     /* background-color: #020E1A; */
-    background: linear-gradient(11deg, #1a0218a8 0.01%, #020e1aa1 40%), url('../Images/home/homepagebg.avif');
     height: 100vh;
     color: #fff;
     min-height: 500px;
     background-size: cover;
     font-family: 'Ubuntu', sans-serif;
     background-position: center center;
+    padding-top: 70px;
+    padding-left: 100px;
 }
 .home .max-width{
   width: 100%;
@@ -607,7 +617,7 @@ aside .simulation{
 .home .home-content .text-2{
     font-size: 45px;
     font-weight: 600;
-    margin-left: -3px;
+    margin-left: 0px;
     width: 80%;
 }
 .home .home-content .text-3{
@@ -1483,6 +1493,62 @@ svg{
 .sqlcard-image6{
     grid-area: image;
     background: url('../Images/home/sqlmiti6.webp');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Directory cards */
+
+.dircard-image1{
+    grid-area: image;
+    background: url('../Images/slider/directorymiti1.jpg');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.dircard-image2{
+    grid-area: image;
+    background: url('../Images/slider/directorymiti2.jpg');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.dircard-image3{
+    grid-area: image;
+    background: url('../Images/slider/directorymiti3.jpg');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.dircard-image4{
+    grid-area: image;
+    background: url('../Images/slider/directorymiti4.webp');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.dircard-image5{
+    grid-area: image;
+    background: url('../Images/slider/directorymiti5.jpg');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.dircard-image6{
+    grid-area: image;
+    background: url('../Images/slider/directorymiti6.webp');
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;

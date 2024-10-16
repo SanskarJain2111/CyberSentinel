@@ -8,46 +8,77 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> 
     <script src="script.js" defer></script>
     <style>
+        body{
+            padding: 20px;
+        }
+        .h1{
+            font-size: large !important;
+            font-family:'Times New Roman', Times, serif !important;
+        }
+
         button {
-            background-color: #00aaff;
             color: white;
             border: none;
             padding: 12px 24px;
             font-size: 1rem;
             cursor: pointer;
             border-radius: 5px;
+            padding-top: 20px;
             margin: 10px;
             transition: background-color 0.3s ease;
         }
 
-        button:hover {
-            background-color: #008ecc;
+        .repscam {
+            background: transparent;
+            color: black;
         }
+
+        .btn-grad {
+            background-image: linear-gradient(to right, #360033 0%, #0b8793  51%, #360033  100%);
+            margin-top: 20px;
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            /* text-transform: uppercase; */
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 50px;
+            /* display: block; */
+          }
+
+          .btn-grad:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+         
 
         select {
             padding: 10px;
             border-radius: 5px;
-            border: 1px solid #00aaff;
+            border: 1px solid #0b8793;
             background-color: #ffffff;
-            color: #011f32;
+            color: #010d14;
             font-size: 1rem;
         }
     </style>
 </head>
 <body>
-    <h1>Phishing Simulation</h1>
+    <h1 style="font-family: 'Times New Roman', Times, serif;">Phishing Simulation</h1>
     
     
-    <button id="start-simulation">Start Simulation</button>
+    <button id="start-simulation" class="btn-grad" style="height: 50px;">Start Simulation</button>
     <div id="simulation-container" style="display: none;">
         <div id="phishing-template"></div>
-        <button id="report-scam">Report as Scam</button>
-        <button id="generate-report">Generate Report</button>
+        <button id="report-scam" class="repscam">Report as Scam</button>
+        <button id="generate-report" class="btn-grad">Generate Report</button>
         <select id="file-format">
             <option value="txt">TXT</option>
             <option value="pdf">PDF</option>
         </select>
-        <button id="download-report" style="display: none;">Download Report</button>
+        <button id="download-report" class="btn-grad" style="display: none;">Download Report</button>
         <div id="report"></div>
     </div>
 </body>
