@@ -1,0 +1,207 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="comments-container">
+        <h2>Post and Comments</h2>
+        <div class="post">
+            <p>This is the post content. Feel free to leave a comment below.</p>
+        </div>
+
+        <div class="comments-section">
+            <h3>Comments</h3>
+            <ul>
+                <% comments.forEach(comment => { %>
+                    <li><%- comment.content %></li>
+                <% }) %>
+            </ul>
+
+            <form action="/comment" method="POST">
+                <textarea name="comment" placeholder="Enter your comment here" required></textarea>
+                <button type="submit">Submit Comment</button>
+            </form>
+        </div>
+
+        <a href="/logout">Logout</a>
+        <a href="/report">Generate Report</a>
+    </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments Section</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background-color: white;
+            border: 1px solid #dbdbdb;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 16px;
+        }
+
+        .profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .post-content {
+            padding: 10px 16px;
+            border-bottom: 1px solid #dbdbdb;
+            font-size: 1.1rem;
+        }
+
+        .comments-section {
+            padding: 10px 16px;
+        }
+
+        .comment {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .comment-img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .comment-text {
+            background-color: #f3f3f3;
+            padding: 8px 12px;
+            border-radius: 18px;
+            font-size: 0.9rem;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .comment-time {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 4px;
+            display: block;
+        }
+
+        .add-comment-section {
+            display: flex;
+            align-items: center;
+            padding: 10px 16px;
+            border-top: 1px solid #dbdbdb;
+        }
+
+        .comment-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #dbdbdb;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+
+        .comment-btn {
+            background-color: #0095f6;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .comment-btn:hover {
+            background-color: #0077b6;
+        }
+
+        .action-links {
+            text-align: center;
+            padding: 16px;
+        }
+
+        .action-links a {
+            color: #0095f6;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .action-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="post-header">
+        <img src="https://via.placeholder.com/40" alt="Profile Picture" class="profile-img">
+        <h4>User123</h4>
+    </div>
+
+    <div class="post-content">
+        <p>This is the post content. Feel free to leave a comment below.</p>
+    </div>
+
+    <div class="comments-section">
+        <% comments.forEach(comment => { %>
+            <div class="comment">
+                <img src="https://via.placeholder.com/30" alt="Comment Profile Picture" class="comment-img">
+                <div>
+                    <div class="comment-text">
+                        <strong><%= comment.username || 'User' %>: </strong> <%- comment.content %>
+                    </div>
+                    <span class="comment-time">
+                        <%= comment.created_at ? new Date(comment.created_at).toLocaleString() : 'Just now' %>
+                    </span>
+                </div>
+            </div>
+            
+        <% }); %>
+    </div>
+
+    <div class="add-comment-section">
+        <form action="/XSS_SIMUL/comment" method="POST">
+            <input type="text" class="comment-input" placeholder="Add a comment..." name="comment" required>
+            <button class="comment-btn" type="submit">Post</button>
+        </form>
+    </div>
+
+    <div class="action-links">
+        <a href="/XSS_SIMUL/login">Logout</a>
+        <a href="/XSS_SIMUL/report">Generate Report</a>
+    </div>
+</div>
+
+</body>
+</html>

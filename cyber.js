@@ -1,122 +1,32 @@
-// const express = require('express');
-// const app = express();
-// const path = require('path');
-// import templateRoutes from './phishing_Simulation/routes/templateRoutes.js';
-
-// // Set the view engine to EJS
-// app.set('view engine', 'ejs');
-// app.set('views', path.join(__dirname, 'views'));
-
-// // Serve static files like CSS and images
-// app.use(express.static(path.join(__dirname, 'public')));
-
-// app.use('/css', express.static(path.join(__dirname, 'css')));
-
-// app.use('/phishing_Simulation', express.static(path.join(__dirname, 'phishing_Simulation/public')));
-
-// // Use phishing simulation routes
-// app.use('/api/template', templateRoutes);
-
-// // Routes
-// app.get('/', (req, res) => {
-//     res.render('home');
-// });
-
-// app.get('/phishingInfo', (req, res) => {
-//     res.render('phishingInfo');
-// });
-
-// app.get('/sqlInfo', (req, res) => {
-//     res.render('sqlInfo');
-// });
-
-// app.get('/directoryInfo', (req, res) => {
-//     res.render('directoryInfo');
-// });
-
-// app.get('/xssInfo', (req, res) => {
-//     res.render('xssInfo');
-// });
-
-// // Start the server
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => {
-//     console.log(`Server is running on port ${PORT}`);
-// });
-
-
-// import express from 'express';
-// import path from 'path';
-// import templateRoutes from './phishing_Simulation/routes/templateRoutes.js';
-
-// const app = express();
-
-// // Set the view engine to EJS
-// app.set('view engine', 'ejs');
-// app.set('views', path.join(process.cwd(), 'views')); // Use process.cwd() for correct path resolution
-
-// // Serve static files like CSS and images
-// app.use(express.static(path.join(process.cwd(), 'public')));
-
-// app.use('/css', express.static(path.join(process.cwd(), 'css')));
-
-// app.use('/phishing_Simulation', express.static(path.join(process.cwd(), 'phishing_Simulation/public')));
-
-// // Use phishing simulation routes
-// app.use('/api/template', templateRoutes);
-
-// // Routes
-// app.get('/', (req, res) => {
-//     res.render('home');
-// });
-
-// app.get('/phishingInfo', (req, res) => {
-//     res.render('phishingInfo');
-// });
-
-// app.get('/sqlInfo', (req, res) => {
-//     res.render('sqlInfo');
-// });
-
-// app.get('/directoryInfo', (req, res) => {
-//     res.render('directoryInfo');
-// });
-
-// app.get('/xssInfo', (req, res) => {
-//     res.render('xssInfo');
-// });
-
-// // Start the server
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => {
-//     console.log(`Server is running on port ${PORT}`);
-// });
-
-
 import express from 'express';
 import path from 'path';
 import mysql from 'mysql2';
 import session from 'express-session';
 import bodyParser from 'body-parser';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 import templateRoutes from './phishing_Simulation/routes/templateRoutes.js'; // Adjust to your actual path
 
 const app = express();
 
-// Set the default views directory globally
-const defaultViewsDir = path.join(path.resolve(), 'views');
+// Set up view engine
 app.set('view engine', 'ejs');
-app.set('views', defaultViewsDir);
 
 // Body parser for handling form data
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Serve static files (CSS, images, etc.)
-app.use(express.static(path.join(path.resolve(), 'public')));
-app.use('/css', express.static(path.join(path.resolve(), 'css')));
-app.use('/phishing_Simulation', express.static(path.join(path.resolve(), 'phishing_Simulation/public')));
-
-// Serve static files for XSS Simulation
-app.use('/XSS_SIMUL/public', express.static(path.join(path.resolve(), 'XSS_SIMUL/public')));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/css', express.static(path.join(__dirname, 'css')));
+app.use('/phishing_Simulation', express.static(path.join(__dirname, 'phishing_Simulation/public')));
+app.use('/XSS_SIMUL/public', express.static(path.join(__dirname, 'XSS_SIMUL/public')));
+app.use('/D_Traversal/public', express.static(path.join(__dirname, 'D_Traversal/public')));
+app.use('/SQLSimulation/public', express.static(path.join(__dirname, 'SQLSimulation/public'))); // SQL Simulation static files
 
 // Use phishing simulation routes
 app.use('/api/template', templateRoutes);
@@ -126,35 +36,47 @@ app.use(session({
     secret: 'secret-key',
     resave: false,
     saveUninitialized: true,
+    cookie: { maxAge: 60000 }, // Set session expiration to 1 minute
 }));
 
-// MySQL setup
-const db = mysql.createConnection({
+// MySQL setup for both databases
+const mainDb = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'sans21',
-    database: 'cybersentinel'
+    database: 'cybersentinel',
 });
 
-db.connect((err) => {
-    if (err) {
-        throw err;
-    }
-    console.log('Connected to MySQL');
+const vulnerableDb = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'sans21',
+    database: 'vulnerable_db',
 });
 
-// Middleware to check login
+// Connect to databases
+mainDb.connect((err) => {
+    if (err) throw err;
+    console.log('Connected to cybersentinel MySQL database');
+});
+
+vulnerableDb.connect((err) => {
+    if (err) throw err;
+    console.log('Connected to vulnerable_db MySQL database');
+});
+
+// Middleware for XSS simulation login check
 function isLoggedIn(req, res, next) {
     if (req.session.loggedIn) {
         next();
     } else {
-        res.redirect('/XSS_SIMUL/login'); // Redirect to login page if not logged in
+        res.redirect('/XSS_SIMUL/login');
     }
 }
 
-// Main site pages routes
+// Main site pages
 app.get('/', (req, res) => {
-    res.render('home'); // This will look in the default views directory
+    res.render('home'); // Renders 'home.ejs'
 });
 
 app.get('/phishingInfo', (req, res) => {
@@ -174,51 +96,128 @@ app.get('/xssInfo', (req, res) => {
 });
 
 // XSS Simulation Routes
-const xssViewsDir = path.join(path.resolve(), 'XSS_SIMUL/views');
+const xssViewsDir = path.join(__dirname, 'XSS_SIMUL/views');
 
 app.get('/XSS_SIMUL/login', (req, res) => {
-    res.render(path.join(xssViewsDir, 'login')); // Directly render login view
+    res.render(path.join(xssViewsDir, 'login'));
 });
 
 app.get('/XSS_SIMUL/comments', isLoggedIn, (req, res) => {
-    db.query('SELECT * FROM comments ORDER BY created_at DESC', (err, results) => {
+    mainDb.query('SELECT * FROM comments ORDER BY created_at DESC', (err, results) => {
         if (err) throw err;
-        res.render(path.join(xssViewsDir, 'comments'), { comments: results }); // Render comments view
+        res.render(path.join(xssViewsDir, 'comments'), { comments: results });
     });
 });
 
 app.get('/XSS_SIMUL/report', isLoggedIn, (req, res) => {
-    res.render(path.join(xssViewsDir, 'report')); // Render report view
+    res.render(path.join(xssViewsDir, 'report'));
 });
 
-// Post login route
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
     if (username === 'admin' && password === 'password') {
         req.session.loggedIn = true;
-        req.session.username = username; // Store the username in the session
+        req.session.username = username;
         res.redirect('/XSS_SIMUL/comments');
     } else {
-        res.render(path.join(xssViewsDir, 'login'), { error: 'Invalid Credentials' }); // Show error on login failure
+        res.render(path.join(xssViewsDir, 'login'), { error: 'Invalid Credentials' });
     }
 });
 
-// Post new comment
 app.post('/XSS_SIMUL/comment', isLoggedIn, (req, res) => {
     const comment = req.body.comment;
-    const username = req.session.username; // Get username from session
+    const username = req.session.username;
 
-    db.query('INSERT INTO comments (content, username) VALUES (?, ?)', [comment, username], (err) => {
+    mainDb.query('INSERT INTO comments (content, username) VALUES (?, ?)', [comment, username], (err) => {
         if (err) throw err;
         res.redirect('/XSS_SIMUL/comments');
     });
 });
 
-// Logout route
 app.get('/logout', isLoggedIn, (req, res) => {
     req.session.destroy(() => {
-        res.redirect('/XSS_SIMUL/login'); // Redirect to login after logout
+        res.redirect('/XSS_SIMUL/login');
     });
+});
+
+// Directory Traversal Simulation Routes
+const dTraversalViewsDir = path.join(__dirname, 'D_Traversal/views');
+
+app.get('/D_Traversal/index', (req, res) => {
+    res.render(path.join(dTraversalViewsDir, 'index'));
+});
+
+app.post('/D_Traversal/view-file', (req, res) => {
+    const filePath = path.join(__dirname, 'D_Traversal/files', req.body.filePath);
+
+    if (filePath.includes('../')) {
+        return res.send("Access Denied: Invalid path.");
+    }
+
+    fs.readFile(filePath, 'utf-8', (err, data) => {
+        if (err) {
+            return res.send("Error: Unable to access file.");
+        }
+        res.render(path.join(dTraversalViewsDir, 'view-file'), { fileContent: data });
+    });
+});
+
+app.get('/D_Traversal/report', (req, res) => {
+    res.render(path.join(dTraversalViewsDir, 'report'));
+});
+
+// SQL Injection Simulation Routes
+const sqlViewsDir = path.join(__dirname, 'SQLSimulation/views');
+
+app.get('/SQLSimulation/index', (req, res) => {
+    res.render(path.join(sqlViewsDir, 'index'));
+});
+
+app.post('/SQLSimulation/login', (req, res) => {
+    const { username, password } = req.body;
+    const timestamp = new Date().toLocaleString();
+    req.session.user_actions = [
+        `User entered username: '${username}' at ${timestamp}`,
+        `User entered password: '${password}' at ${timestamp}`,
+        `User clicked 'Sign In' at ${timestamp}`,
+    ];
+
+    const sql = 'SELECT * FROM users WHERE username = ? AND password = ?';
+    vulnerableDb.query(sql, [username, password], (err, result) => {
+        if (err) throw err;
+
+        req.session.report_data = { username, password, timestamp, user_actions: req.session.user_actions };
+
+        if (result.length > 0) {
+            req.session.message = 'Login successful.';
+            res.redirect('/SQLSimulation/report');
+        } else {
+            req.session.message = 'Login failed. Please recheck your credentials and try again.';
+            res.redirect('/SQLSimulation/report');
+        }
+    });
+});
+
+app.get('/SQLSimulation/report', (req, res) => {
+    if (!req.session.report_data) {
+        return res.redirect('/SQLSimulation/index');
+    }
+    res.render(path.join(sqlViewsDir, 'report'), { message: req.session.message, data: req.session.report_data });
+});
+
+app.post('/SQLSimulation/report_spam', (req, res) => {
+    const timestamp = new Date().toLocaleString();
+    req.session.spam_report_actions = [`User clicked 'Report as Spam' at ${timestamp}`];
+    res.redirect('/SQLSimulation/spam_report');
+});
+
+app.get('/SQLSimulation/spam_report', (req, res) => {
+    if (!req.session.spam_report_actions) {
+        return res.redirect('/SQLSimulation/index');
+    }
+    const message = 'Congratulations! You have identified this as a vulnerable website.';
+    const user_actions = req.session.spam_report_actions;
+    res.render(path.join(sqlViewsDir, 'spam_report'), { message, user_actions });
 });
 
 // Start the server

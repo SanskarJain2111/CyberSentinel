@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,8 +8,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> 
     <script src="script.js" defer></script>
     <style>
-        body{
+       body{
             padding: 20px;
+            background-color: #fff;
         }
         .h1{
             font-size: large !important;
@@ -39,35 +40,74 @@
             margin: 10px;
             padding: 15px 45px;
             text-align: center;
-            /* text-transform: uppercase; */
             transition: 0.5s;
             background-size: 200% auto;
             color: white;            
             box-shadow: 0 0 20px #eee;
             border-radius: 50px;
-            /* display: block; */
-          }
+        }
 
-          .btn-grad:hover {
-            background-position: right center; /* change the direction of the change here */
+        .btn-grad:hover {
+            background-position: right center;
             color: #fff;
             text-decoration: none;
-          }
-         
+        }
 
         select {
             padding: 10px;
             border-radius: 5px;
-            border: 1px solid #0b8793;
+            border: 1px solid #064a51;
             background-color: #ffffff;
             color: #010d14;
             font-size: 1rem;
         }
+
+        .report-container {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #0b8793, #360033);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .report-container::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .report-container::after {
+            content: "";
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        #report {
+            position: relative;
+            z-index: 2;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+        }
+
     </style>
 </head>
 <body>
     <h1 style="font-family: 'Times New Roman', Times, serif;">Phishing Simulation</h1>
-    
     
     <button id="start-simulation" class="btn-grad" style="height: 50px;">Start Simulation</button>
     <div id="simulation-container" style="display: none;">
@@ -79,11 +119,157 @@
             <option value="pdf">PDF</option>
         </select>
         <button id="download-report" class="btn-grad" style="display: none;">Download Report</button>
-        <div id="report"></div>
+        
+        <!-- Report Container 
+        <div class="report-container">
+            <div id="report">Your report will be displayed here.</div>
+        </div>
     </div>
 </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Simulation</title>
+    <script src="https://cdn.jsdelivr.net/npm/docx@7.0.1/build/docx.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> 
+    <script src="script.js" defer></script>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            height: auto; /* Full height */
+            background: #011f32; /* Base color */
+            background-image: url('https://www.transparenttextures.com/patterns/light-paper.png'); /* Subtle texture */
+            /* color: white; Ensures text is readable */
+            display: flex; /* Use flexbox */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+        h1 {
+            /* font-size: large !important;
+            font-family: 'Times New Roman', Times, serif !important; */
+            margin-bottom: 20px; /* Adds space below the title */
+        }
+        button {
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .repscam {
+            background: transparent;
+            color: black;
+        }
+        .btn-grad {
+            background-image: linear-gradient(to right, #360033 0%, #0b8793 51%, #360033 100%);
+            margin-top: 20px;
+            padding: 15px 45px;
+            text-align: center;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 50px;
+        }
+        .btn-grad:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+        }
+        select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #064a51;
+            background-color: #ffffff;
+            color: #010d14;
+            font-size: 1rem;
+        }
+        .container {
+            text-align: center; /* Center the content in the container */
+        }
+        .report-container {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, rgba(11, 135, 147, 0.9), rgba(54, 0, 51, 0.9));
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            position: relative;
+            overflow: hidden;
+            
+            /* display: none; Hidden by default */
+        }
+        .report-container::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .report-container::after {
+            content: "";
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        #report {
+            position: relative;
+            z-index: 2;
+            color: #ffffff; /* Text color for the report */
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Container for title and button -->
+    <div class="container" id="intro-container">
+        <h1 style="font-family: 'Times New Roman', Times, serif; color: #fff; margin-top: 50%;">Phishing Simulation</h1>
+        <button id="start-simulation" class="btn-grad" style="height: 50px;">Start Simulation</button>
+    </div>
+
+    <!-- Simulation container, initially hidden -->
+    <div id="simulation-container" style="display: none">
+        <div id="phishing-template">Template will appear here.</div>
+        <button id="report-scam" class="repscam">Report as Scam</button>
+        <button id="generate-report" class="btn-grad">Generate Report</button>
+        <select id="file-format">
+            <option value="txt">TXT</option>
+            <option value="pdf">PDF</option>
+        </select>
+        <button id="download-report" class="btn-grad" style="display: none;">Download Report</button>
+        
+        <!-- Report Container -->
+        <div class="report-container">
+            <div id="report">Your report will be displayed here.</div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle the click event
+        document.getElementById('start-simulation').addEventListener('click', function() {
+            // Hide the intro container
+            document.getElementById('intro-container').style.display = 'none';
+            // Show the simulation container
+            document.getElementById('simulation-container').style.display = 'block';
+        });
+    </script>
+</body>
 </html>
-
-
-
-
