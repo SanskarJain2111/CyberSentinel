@@ -1,11 +1,34 @@
-function response(choice) {
-    const resultDiv = document.getElementById('result');
-    
-    if (choice === 'clickLink') {
-        resultDiv.innerHTML = `<p class="error">You clicked the link. This could lead to a phishing site. Always verify links before clicking!</p>`;
-    } else if (choice === 'callBank') {
-        resultDiv.innerHTML = `<p class="success">Good choice! Calling the bank directly is a safe way to verify requests.</p>`;
-    } else if (choice === 'deleteEmail') {
-        resultDiv.innerHTML = `<p class="neutral">Deleting the email is a cautious choice, but consider reporting it for others' safety.</p>`;
-    }
-}
+document.addEventListener('DOMContentLoaded', function() {
+    let accordionButtons = document.querySelectorAll('.accordion-button');
+    let acoimg = document.querySelectorAll('.accordion-button img');
+
+    accordionButtons.forEach(function(button, index) {
+        button.addEventListener('click', function() {
+            let collapse = this.parentElement.nextElementSibling;
+
+            accordionButtons.forEach(function(otherButton, otherIndex) {
+                if (otherButton !== button) {
+                    let otherCollapse = otherButton.parentElement.nextElementSibling;
+                    otherCollapse.style.maxHeight = null;
+
+                    acoimg[otherIndex].src = 'public/Images/icon/plus.png';
+                    acoimg[otherIndex].style.transform = 'rotate(0deg)';
+                    otherButton.style.backgroundColor = "#fff";
+                }
+            });
+
+            if (collapse.style.maxHeight) {
+                collapse.style.maxHeight = null;
+                acoimg[index].src = "public/Images/icon/plus.png";
+                acoimg[index].style.transform = "rotate(90deg)";
+                button.style.backgroundColor = '';
+            } else {
+                collapse.style.maxHeight = collapse.scrollHeight + "px";
+
+                acoimg[index].src = "public/Images/icon/menus.png";
+                acoimg[index].style.transform = "rotate(180deg)";
+                button.style.backgroundColor = '#c1b0b5';
+            }
+        });
+    });
+});

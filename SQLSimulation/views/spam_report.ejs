@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General reset for consistent styling across browsers */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        /* Container for the spam report */
+        .spam-report-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Heading styles */
+        h2 {
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        h3 {
+            color: #555;
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        /* Message paragraph style */
+        p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* List of user actions */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            background-color: #f0f0f5;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            color: #333;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            .spam-report-container {
+                padding: 20px;
+                max-width: 90%;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            h3 {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="spam-report-container">
+        <h2>Spam Report</h2>
+
+        <p><%= message %></p>
+
+        <h3>User Actions:</h3>
+        <ul>
+            <% user_actions.forEach(action => { %>
+                <li><%= action %></li>
+            <% }) %>
+        </ul>
+    </div>
+
+</body>
+</html>

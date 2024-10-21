@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic styling for the report page */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .report-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #28a745;
+        }
+        .message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .data-container {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .data-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .data-container li {
+            padding: 5px 0;
+        }
+        .warning {
+            color: red;
+        }
+        .security-tips {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="report-container">
+        <h2>Login Report</h2>
+
+        <!-- Display the feedback message here -->
+        <div class="message"><%= message %></div>
+
+        <!-- Display user actions -->
+        <div class="data-container">
+            <h3>Login Details</h3>
+            <ul>
+                <li><strong>Username:</strong> <%= data.username %></li>
+                <li><strong>Password:</strong> <%= data.password %></li>
+                <li><strong>Login Time:</strong> <%= data.timestamp %></li>
+            </ul>
+        </div>
+
+        <!-- Display a list of actions performed by the user -->
+        <div class="data-container">
+            <h3>User Actions</h3>
+            <ul>
+                <% data.user_actions.forEach(action => { %>
+                    <li><%= action %></li>
+                <% }) %>
+            </ul>
+        </div>
+
+        <!-- Security warning and tips -->
+        <div class="security-tips">
+            <h3 class="warning">Security Warning</h3>
+            <p>This site is vulnerable to SQL injection attacks. Please exercise caution when entering sensitive information on this or any other website.</p>
+
+            <h3>Security Tips</h3>
+            <ul>
+                <li>1) Always verify the website URL before entering sensitive data.</li>
+                <li>2) Ensure the site uses HTTPS for secure connections.</li>
+                <li>3) Enable two-factor authentication whenever possible.</li>
+                <li>4) Regularly update your passwords and avoid reusing them across sites.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
