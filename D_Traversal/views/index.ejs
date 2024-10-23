@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Directory Traversal Simulation</title>
+        <link rel="stylesheet" href="/D_Traversal/public/directorystyle.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    
+<body>
+    <div class="container">
+        <h2>Directory Traversal Simulation</h2>
+
+        <div class="file-access">
+            <h3>Enter a File Path to View Content:</h3>
+            <form action="/D_Traversal/view-file" method="POST">
+                <input type="text" name="filePath" placeholder="Enter file path (e.g., ../../secret.txt)" required>
+                <button type="submit">View File</button>
+            </form>
+        </div>
+
+        <div class="file-list">
+            <h3>Files You Can Access:</h3>
+            <ul>
+                <li>readme.txt</li>
+                <li>example.txt</li>
+            </ul>
+        </div>
+
+        <div class="solution-section">
+            <h3>How to Access Restricted Files:</h3>
+            <p>Use directory traversal techniques like entering `../passwd.txt` to access sensitive files.</p>
+        </div>
+
+        <form action="/D_Traversal/report" method="GET">
+            <button type="submit">Generate Report</button>
+        </form>
+
+        <div class="footer">
+            <a href="/">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
