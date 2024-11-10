@@ -22,7 +22,21 @@
 
 <body>
     <div class="site-wrapper">
-        <!--================SQL Injection Attack==================-->
+        <!--================Scroll to top==================-->
+        <div id="progress">
+            <svg id="progress-ring" width="70" height="70">
+                <!-- Gradient Definition -->
+                <defs>
+                    <linearGradient id="gradient-stroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ff7527" />
+                        <stop offset="100%" stop-color="#fabf28" />
+                    </linearGradient>
+                </defs>
+                <circle cx="35" cy="35" r="30" />
+            </svg>
+            <span id="progress-value">0%</span>
+        </div>
+        <!--================Directory Traversal Attack==================-->
         <section class="attack">
             <%- include('header') %>
             <div class="container p-relative">

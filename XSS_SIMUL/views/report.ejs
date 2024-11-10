@@ -3,15 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report</title>
+    <title>XSS Prevention Tips</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        /* General Styles */
+        body {
+            background-color: #ffffff;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .report-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+            text-align: left;
+        }
+
+        h2 {
+            color: #000000;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 20px;
+            list-style-type: disc;
+            color: #000000;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        a {
+            display: inline-block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 50px;
+            background-color: #007bff;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        a:hover {
+            background-color: #6a6f91;
+        }
+    </style>
 </head>
 <body>
     <div class="report-container">
-        <h2>Stored XSS Report</h2>
-        <p>Stored XSS is a type of attack where malicious scripts are injected and stored in the server database. When a user accesses the page, these scripts get executed in the victim's browser.</p>
-        <h3>Example: onmouseover Event</h3>
-        <p>In this demo, if an attacker injects an onmouseover event in the comment, it will only be triggered when the user performs the corresponding action.</p>
+        <h2>XSS Prevention Tips</h2>
+        <ul>
+            <li><strong>Sanitize Input:</strong> Make sure that all user inputs are properly sanitized and validated to prevent malicious code from being injected.</li>
+            <li><strong>Escape Output:</strong> Use encoding techniques for any data rendered on the webpage, especially within HTML, JavaScript, and CSS, to prevent scripts from executing.</li>
+            <li><strong>Use Content Security Policy (CSP):</strong> Implement CSP headers to restrict the types of content that can be loaded and executed on your site, reducing the chances of executing malicious scripts.</li>
+            <li><strong>Disable Inline JavaScript:</strong> Avoid using inline JavaScript code in your HTML files. Instead, use external scripts that are easier to control and audit.</li>
+            <li><strong>Limit User Permissions:</strong> Restrict user roles and permissions on the server to limit the impact of potential attacks.</li>
+            <li><strong>Use HTTP-Only Cookies:</strong> Set cookies to HTTP-Only and Secure to reduce the risk of cookie theft through XSS attacks.</li>
+            <li><strong>Regular Security Audits:</strong> Conduct frequent security assessments to identify and fix any vulnerabilities in your application.</li>
+        </ul>
         <a href="/XSS_SIMUL/comments">Back to Comments</a>
     </div>
 </body>

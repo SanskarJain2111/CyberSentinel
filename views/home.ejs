@@ -25,6 +25,21 @@
 </head>
 
 <body>
+    <div id="progress">
+        <svg id="progress-ring" width="70" height="70">
+            <!-- Gradient Definition -->
+            <defs>
+                <linearGradient id="gradient-stroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ff7527" />
+                    <stop offset="100%" stop-color="#fabf28" />
+                </linearGradient>
+            </defs>
+            <circle cx="35" cy="35" r="30" />
+        </svg>
+        <span id="progress-value">0%</span>
+    </div>
+    
+
     <div class="site-wrapper">
         <!-- Header Section -->
     <!-- <header>
@@ -265,7 +280,7 @@
                 </div>  
                 <div class="w-50 mt-15"> 
                     <div class="accordion flex flex-col gap-1" id="accordionExample">
-                        <div class="accordion-item">
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
                             <h2 class="accordion-header">
                                 <button class="accordion-button flex-sb">
                                     How can I protect myself from cyber attacks?

@@ -12,9 +12,10 @@
             background-color: #f2f2f2;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Changed to top alignment */
             height: 100vh;
             margin: 0;
+            overflow-y: auto; /* Allow page scroll */
         }
         .report-container {
             background-color: #fff;
@@ -24,6 +25,8 @@
             text-align: center;
             width: 80%;
             max-width: 600px;
+            max-height: 80vh; /* Limit height of the container */
+            overflow-y: auto; /* Allow scrolling inside the report */
         }
         h2 {
             margin-bottom: 20px;
@@ -67,6 +70,50 @@
         .video-container {
             display: none;
             margin-top: 20px;
+            max-height: 400px; /* Limit video height */
+            overflow-y: auto; /* Allow scrolling inside the video container */
+        }
+        /* Styling for failed login message */
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .error-icon {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #721c24;
+        }
+        .tip-text {
+            color: #721c24;
+            font-weight: bold;
+        }
+        /* Back to login button styling */
+        .back-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        /* Download button styling */
+        .download-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
         }
     </style>
     <script>
@@ -74,6 +121,39 @@
         function toggleVideo() {
             const videoContainer = document.getElementById("videoContainer");
             videoContainer.style.display = videoContainer.style.display === "none" ? "block" : "none";
+        }
+
+        // Function to download the report as a text file
+        function downloadReport() {
+            let reportContent = "Login Report\n";
+            reportContent += "========================\n";
+
+            // Check if the message is successful
+            <% if (message === 'Login successful.') { %>
+                reportContent += "Username: <%= data.username %>\n";
+                reportContent += "Password: <%= data.password %>\n";
+                reportContent += "Login Time: <%= data.timestamp %>\n\n";
+                reportContent += "User Actions:\n";
+                <% data.user_actions.forEach(action => { %>
+                    reportContent += "<%= action %>\n";
+                <% }) %>
+
+                reportContent += "\nSecurity Warning: This site is vulnerable to SQL injection attacks.\n";
+                reportContent += "Security Tips:\n";
+                reportContent += "1) Always verify the website URL.\n";
+                reportContent += "2) Ensure HTTPS for secure connections.\n";
+                reportContent += "3) Enable two-factor authentication.\n";
+                reportContent += "4) Regularly update passwords.\n";
+            <% } else { %>
+                reportContent += "Login failed.\n";
+                reportContent += "Tip: Avoid entering unusual characters in login fields.\n";
+            <% } %>
+
+            const blob = new Blob([reportContent], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'login_report.txt';
+            link.click();
         }
     </script>
 </head>
@@ -85,50 +165,69 @@
         <!-- Display the feedback message here -->
         <div class="message"><%= message %></div>
 
-        <!-- Display user actions -->
-        <div class="data-container">
-            <h3>Login Details</h3>
-            <ul>
-                <li><strong>Username:</strong> <%= data.username %></li>
-                <li><strong>Password:</strong> <%= data.password %></li>
-                <li><strong>Login Time:</strong> <%= data.timestamp %></li>
-            </ul>
-        </div>
+        <!-- Check if login was successful -->
+        <% if (message === 'Login successful.') { %>
+            <!-- Display user actions and report when login is successful -->
+            <div class="data-container">
+                <h3>Login Details</h3>
+                <ul>
+                    <li><strong>Username:</strong> <%= data.username %></li>
+                    <li><strong>Password:</strong> <%= data.password %></li>
+                    <li><strong>Login Time:</strong> <%= data.timestamp %></li>
+                </ul>
+            </div>
 
-        <!-- Display a list of actions performed by the user -->
-        <div class="data-container">
-            <h3>User Actions</h3>
-            <ul>
-                <% data.user_actions.forEach(action => { %>
-                    <li><%= action %></li>
-                <% }) %>
-            </ul>
-        </div>
+            <!-- Display a list of actions performed by the user -->
+            <div class="data-container">
+                <h3>User Actions</h3>
+                <ul>
+                    <% data.user_actions.forEach(action => { %>
+                        <li><%= action %></li>
+                    <% }) %>
+                </ul>
+            </div>
 
-        <!-- Security warning and tips -->
-        <div class="security-tips">
-            <h3 class="warning">Security Warning</h3>
-            <p>This site is vulnerable to SQL injection attacks. Please exercise caution when entering sensitive information on this or any other website.</p>
+            <!-- Security warning and tips -->
+            <div class="security-tips">
+                <h3 class="warning">Security Warning</h3>
+                <p>This site is vulnerable to SQL injection attacks. Please exercise caution when entering sensitive information on this or any other website.</p>
 
-            <h3>Security Tips</h3>
-            <ul>
-                <li>1) Always verify the website URL before entering sensitive data.</li>
-                <li>2) Ensure the site uses HTTPS for secure connections.</li>
-                <li>3) Enable two-factor authentication whenever possible.</li>
-                <li>4) Regularly update your passwords and avoid reusing them across sites.</li>
-            </ul>
-        </div>
+                <h3>Security Tips</h3>
+                <ul>
+                    <li>1) Always verify the website URL before entering sensitive data.</li>
+                    <li>2) Ensure the site uses HTTPS for secure connections.</li>
+                    <li>3) Enable two-factor authentication whenever possible.</li>
+                    <li>4) Regularly update your passwords and avoid reusing them across sites.</li>
+                </ul>
+            </div>
 
-        <!-- Button to toggle video display -->
-        <button class="video-button" onclick="toggleVideo()">Show SQL Injection Attack Video</button>
+            <!-- Button to toggle video display -->
+            <button class="video-button" onclick="toggleVideo()">Show SQL Injection Attack Video</button>
 
-        <!-- Video container to display the video -->
-        <div id="videoContainer" class="video-container">
-            <video width="100%" controls>
-                <source src="/SQLSimulation/public/sqlinjectionanimation.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
+            <!-- Video container to display the video -->
+            <div id="videoContainer" class="video-container">
+                <video width="100%" controls>
+                    <source src="/SQLSimulation/public/sqlinjectionanimation.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+        <% } else { %>
+            <!-- Display enhanced security tip when login fails -->
+            <div class="error-message">
+                <span class="error-icon">&#9888;</span>
+                <div>
+                    <p><strong>Login Failed:</strong> Your login attempt was unsuccessful.</p>
+                    <p class="tip-text">Tip: For added security, avoid entering any unusual characters in the login fields.</p>
+                </div>
+            </div>
+        <% } %>
+
+        <!-- Download Report Button -->
+        <button class="download-button" onclick="downloadReport()">Download Report</button>
+
+        <!-- Back to Login Button -->
+        <a href="/SQLSimulation/index" class="back-button">Back to Login Page</a>
     </div>
 
 </body>

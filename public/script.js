@@ -1,3 +1,5 @@
+
+
 // side bar start
 
 function openNav(){
@@ -114,3 +116,34 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
+let calcScrollValue = () => {
+    let scrollProgress = document.getElementById("progress");
+    let progressValue = document.getElementById("progress-value");
+    let progressRing = document.querySelector("#progress-ring circle");
+    let pos = document.documentElement.scrollTop;
+    let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrollValue = Math.round((pos * 100) / calcHeight);
+
+    // Display scroll percentage
+    progressValue.textContent = `${scrollValue}%`;
+
+    // Show or hide scroll button
+    if (pos > 100) {
+      scrollProgress.style.display = "grid";
+    } else {
+      scrollProgress.style.display = "none";
+    }
+
+    // Calculate offset based on scroll percentage
+    let offset = 188.4 - (scrollValue / 100) * 188.4;
+    progressRing.style.strokeDashoffset = offset;
+
+    // Scroll to top functionality
+    scrollProgress.addEventListener("click", () => {
+      document.documentElement.scrollTop = 0;
+    });
+};
+
+window.onscroll = calcScrollValue;
+window.onload = calcScrollValue;
