@@ -136,6 +136,14 @@
         .report-link:hover {
             text-decoration: underline;
         }
+
+        .footer a {
+            color: #000000;
+            text-decoration: none;
+            margin-top: 50px;
+            display: inline-block;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -157,7 +165,7 @@
 
             <label for="password">Password</label>
             <div class="password-container">
-                <input type="text" id="password" name="password" required>
+                <input type="password" id="password" name="password" required>
                 <i class="fas fa-eye toggle-password" id="togglePassword"></i>
             </div>
 
@@ -178,6 +186,10 @@
         <form method="POST" action="/SQLSimulation/report_spam">
             <a class="report-link" href="javascript:void(0)" onclick="this.closest('form').submit();">Report as spam</a>
         </form>
+    </div>
+
+    <div class="footer">
+        <a href="/">Back to Home</a>
     </div>
 
     <script>

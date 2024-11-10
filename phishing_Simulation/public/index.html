@@ -236,6 +236,24 @@
             color: #ffffff; /* Text color for the report */
             font-family: 'Arial', sans-serif;
         }
+
+        .refresh a {
+            color: #000000;
+            text-decoration: none;
+            margin-top: 50px;
+            display: inline-block;
+            font-size: 18px;
+            padding-left: 600px;
+            margin-bottom: 30px;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin-top: 50px;
+            display: inline-block;
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -243,11 +261,18 @@
     <div class="container" id="intro-container">
         <h1 style="font-family: 'Times New Roman', Times, serif; color: #fff; margin-top: 50%;">Phishing Simulation</h1>
         <button id="start-simulation" class="btn-grad" style="height: 50px;">Start Simulation</button>
+        <div class="footer">
+            <a href="/">Back to Home</a>
+        </div>
+    
     </div>
 
     <!-- Simulation container, initially hidden -->
     <div id="simulation-container" style="display: none">
         <div id="phishing-template">Template will appear here.</div>
+        <div class="refresh">
+            <a href="/phishing_Simulation/index.html">Change template</a>
+        </div>
         <button id="report-scam" class="repscam">Report as Scam</button>
         <button id="generate-report" class="btn-grad">Generate Report</button>
         <select id="file-format">

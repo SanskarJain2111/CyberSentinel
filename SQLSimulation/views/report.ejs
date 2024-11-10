@@ -54,7 +54,28 @@
         .security-tips {
             text-align: left;
         }
+        /* Button styling */
+        .video-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .video-container {
+            display: none;
+            margin-top: 20px;
+        }
     </style>
+    <script>
+        // Function to toggle video visibility
+        function toggleVideo() {
+            const videoContainer = document.getElementById("videoContainer");
+            videoContainer.style.display = videoContainer.style.display === "none" ? "block" : "none";
+        }
+    </script>
 </head>
 <body>
 
@@ -96,6 +117,17 @@
                 <li>3) Enable two-factor authentication whenever possible.</li>
                 <li>4) Regularly update your passwords and avoid reusing them across sites.</li>
             </ul>
+        </div>
+
+        <!-- Button to toggle video display -->
+        <button class="video-button" onclick="toggleVideo()">Show SQL Injection Attack Video</button>
+
+        <!-- Video container to display the video -->
+        <div id="videoContainer" class="video-container">
+            <video width="100%" controls>
+                <source src="/SQLSimulation/public/sqlinjectionanimation.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </div>
 

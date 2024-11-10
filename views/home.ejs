@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyber Security Awareness Website</title>
-    <link rel="shortcut icon" href="images/cyber-security.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/cyber-security.png" type="image/x-icon"> 
     <!--/* Scroll cdn */-->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
@@ -15,51 +15,404 @@
 
     <link rel="stylesheet" href="css/slick.min.css">
 
+    <link rel="stylesheet" href="css/homestyles.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        
 </head>
 
 <body>
     <div class="site-wrapper">
-        <!--================Home Section==================-->
+        <!-- Header Section -->
+    <!-- <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">Cyber Sentinel</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Attacks</a></li>
+                <li><a href="#">Simulations</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            
+        </nav>
+    </header> -->
+
+    <!-- Hero Section -->
+    <section class="hero">
+        
         <div class="page">
             <%- include('header') %>
-        
             <section class="home" id="home">
                 <div class="homepage">
                     
                     <div class="container">
                         <div class="home-content">
-                            <div class="text-2">Uncover the World of Cyber Threats: Defend Yourself, Secure Your Future</div>
+                            <div class="text-2" data-aos="fade-right">Uncover the World of Cyber Threats: Defend Yourself, Secure Your Future</div>
                             <br>
-                            <div class="text-3">Don’t be the next victim of a cyber attack. Our platform offers real-world simulations to teach you how hackers operate and how you can stay one step ahead. Your journey to cybersecurity mastery starts here.
+                            <div class="text-3" data-aos="fade-right">Don’t be the next victim of a cyber attack. Our platform offers real-world simulations to teach you how hackers operate and how you can stay one step ahead. Your journey to cybersecurity mastery starts here.
                                 <br><br>
                                 <span class="typing"></span></div>
-                            <a href="#">Explore</a>
+                            <a href="#" data-aos="fade-right">Explore</a>
                         </div>
                     </div>
                     
                 </div>
             
-        </section>
         </div>
+    </section>
 
+    <!-- Introduction to Cybersecurity Section -->
+    <section id="intro-cybersecurity">
+        <div class="intro-container">
+            <div class="intro-text" data-aos="fade-up">
+                <h2>Introduction to Cybersecurity</h2>
+                <p>
+                    Cybersecurity is the practice of protecting systems, networks, and programs from digital attacks.
+                    These cyberattacks are usually aimed at accessing, changing, or destroying sensitive information,
+                    extorting money from users, or interrupting normal business processes. 
+                </p>
+                <p>
+                    Effective cybersecurity measures are particularly challenging today because there are more devices
+                    than people, and attackers are becoming more innovative. 
+                </p>
+            </div>
+            <div class="intro-image" data-aos="fade-down">
+                <img src="/Images/bg/intro-img-section.png" alt="Cybersecurity Illustration">
+            </div>
+        </div>
+    </section>
+
+    <!-- About us -->
+    <section class="about-us">
+        <div class="aboutcontainer">
+            <!-- Left section with images (two in one column) -->
+            <div class="images-grid">
+                <div class="image-item" data-aos="fade-down">
+                    <img src="/Images/slider/about-us-img1.jpg" alt="Cyber Security">
+                </div>
+                <div class="image-item" data-aos="fade-up">
+                    <img src="/Images/slider/about-us-img-2.jpg" alt="Team Collaboration">
+                </div>
+                <div class="image-item" data-aos="fade-left">
+                    <img src="/Images/slider/about-img-3.jpg" alt="Data Security">
+                </div>
+            </div>
+
+            <!-- Right section with text and statistics -->
+            <div class="text-section" data-aos="fade-up">
+                <h3>About Us</h3>
+                <h1>Provides Best Approach To Security</h1>
+                <p>At Cyber Sentinel, we aim to make cybersecurity simple, engaging, and empowering. With the rise of digital threats, our platform offers interactive learning experiences, allowing users to practice defending against real-world cyber-attacks like phishing and SQL injection.
+
+                    Our goal is to equip individuals and organizations with practical skills to identify, prevent, and respond to cyber threats. Through real-time simulations and up-to-date security insights, we help build your digital defense knowledge.</p>
+                
+            
+            </div>
+        </div>
+    </section>
+    
+     <!-- Key Features Section -->
+    <section class="key-features">
+        <div class="container">
+            <h2 data-aos="zoom-in">Why Choose Cyber Sentinel?</h2>
+            <p class="section-description" data-aos="zoom-in">Explore the powerful features that make our platform stand out in cybersecurity education.</p>
+
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <h3>Comprehensive Simulations</h3>
+                    <p>Experience real-world attack scenarios and learn how to prevent them through interactive simulations.</p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-down">
+                    <i class="fas fa-user-secret feature-icon"></i>
+                    <h3>Real-World Threats</h3>
+                    <p>Stay updated on the latest cyber threats, vulnerabilities, and attack techniques from industry experts.</p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-brain feature-icon"></i>
+                    <h3>Interactive Learning</h3>
+                    <p>Hands-on, engaging lessons designed to strengthen your cybersecurity skills and awareness.</p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-down">
+                    <i class="fas fa-lock feature-icon"></i>
+                    <h3>Security Best Practices</h3>
+                    <p>Learn the industry's best practices for keeping your personal and business data safe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Cybersecurity Awareness Matters Section -->
+    <section class="why-cybersecurity">
+        <div class="container1">
+            <div class="content" data-aos="fade-down">
+                <h2>Why Cybersecurity Awareness Matters</h2>
+                <p class="section-description">
+                    In today's digital age, cyber threats are becoming more frequent and sophisticated. Whether you're a business owner or an individual, cybersecurity awareness is essential to protect your data, assets, and privacy. Learn how to stay ahead of cyber criminals with up-to-date knowledge and proactive defense strategies.
+                </p>
+                <a href="#" class="btn primary-btn">Start Learning Now</a>
+            </div>
+            <div class="engagement-image" data-aos="fade-up">
+                <img src="/Images/bg/why.jpg" alt="Cybersecurity Awareness">
+            </div>
+        </div>
+    </section>
+
+    <!-- Simulations Teaser Section -->
+    <section class="simulations-teaser bg-gradient">
+        <div class="container">
+            <h2 data-aos="zoom-in">Interactive Cyber Attack Simulations</h2>
+            <p class="section-description" data-aos="zoom-in">Get hands-on experience with real-world cyber attacks through our engaging simulations. Learn how to identify and respond to threats effectively.</p>
+    
+            <div class="simulations-layout">
+                <div class="simulation-image" data-aos="fade-right">
+                    <img src="/Images/slider/home-2-banner.png" alt="Cyber Security">
+                </div>
+    
+                <div class="simulations-right">
+                    <div class="simulation-card-right" data-aos="fade-left">
+                        <div class="simulation-icon"><i class="fas fa-envelope-open-text"></i></div>
+                        <h3>Phishing Simulation</h3>
+                        <p>Simulate real phishing attacks, recognize deceptive emails, and learn how to prevent falling for malicious links.</p>
+                        <a href="/phishing_Simulation/index.html" class="simulation-button btn_hover2">Start Simulation</a>
+                    </div>
+    
+                    <div class="simulation-card-right" data-aos="fade-left">
+                        <div class="simulation-icon"><i class="fas fa-folder-open"></i></div>
+                        <h3>Directory Traversal Simulation</h3>
+                        <p>Experience the impact of directory traversal attacks and learn how to safeguard your files from unauthorized access.</p>
+                        <a href="/D_Traversal/index" class="simulation-button btn_hover2">Start Simulation</a>
+                    </div>
+                </div>
+    
+                <div class="simulations-below">
+                    <div class="simulation-card" data-aos="fade-up">
+                        <div class="simulation-icon"><i class="fas fa-database"></i></div>
+                        <h3>SQL Injection Simulation</h3>
+                        <p>Understand how SQL Injection attacks exploit vulnerabilities in web applications and how to defend against them.</p>
+                        <a href="/SQLSimulation/index" class=" simulation-button btn_hover2">Start Simulation</a>
+                    </div>
+    
+                    <div class="simulation-card" data-aos="fade-up">
+                        <div class="simulation-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <h3>Cross-site Scripting Attack</h3>
+                        <p>Learn how attackers intercept communication and how encryption can protect you from eavesdropping.</p>
+                        <a href="/XSS_SIMUL/login" class="simulation-button btn_hover2">Start Simulation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 data-aos="zoom-in">How It Works</h2>
+            <p class="section-description" data-aos="zoom-in">Follow these simple steps to get started with our interactive cybersecurity simulations and learn how to protect yourself against real-world threats.</p>
+
+            <div class="steps-container">
+                <div class="step unique-card" data-aos="fade-down">
+                    <div class="step-icon">📝</div>
+                    <h3>Step 1: Sign Up</h3>
+                    <p>Create a free account to access our cybersecurity training platform. It's fast and easy!</p>
+                </div>
+
+                <div class="step unique-card" data-aos="fade-up">
+                    <div class="step-icon">🎯</div>
+                    <h3>Step 2: Choose a Simulation</h3>
+                    <p>Select from a wide range of cyber attack simulations tailored to different threats like phishing, ransomware, and more.</p>
+                </div>
+
+                <div class="step unique-card" data-aos="fade-down">
+                    <div class="step-icon">🕹️</div>
+                    <h3>Step 3: Start the Simulation</h3>
+                    <p>Experience real-world attack scenarios in a safe environment and test your ability to recognize and respond to cyber threats.</p>
+                </div>
+
+                <div class="step unique-card" data-aos="fade-up">
+                    <div class="step-icon">📊</div>
+                    <h3>Step 4: Review Your Performance</h3>
+                    <p>Get detailed reports of your actions during the simulation and personalized tips on how to improve your security awareness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq p-relative">
+        <span></span>
+        <div class="container">
+            <div class="flex flex-wrap">
+                <div class="w-50 text-center" data-aos="fade-right">
+                    <div class="flex gap-1">
+                        <hr class="faq-hr1">
+                        <h5>FAQ</h5>
+                    </div>
+                    <h2 class="mt-1">Frequently Asked Questions</h2>
+                    <p class="mt-1">Explore answers to common questions about cybersecurity practices, threats, and how you can stay protected. Learn how to secure your personal information, handle breaches, and safeguard your online presence effectively.</p>
+                </div>  
+                <div class="w-50 mt-15"> 
+                    <div class="accordion flex flex-col gap-1" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button flex-sb">
+                                    How can I protect myself from cyber attacks?
+                                    <img src="/Images/icon/plus.png" alt="icon">
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse">
+                                <p>To protect yourself from cyber attacks, always use strong, unique passwords for your accounts, enable two-factor authentication, keep your software updated, and be cautious of suspicious emails and links. Additionally, consider using antivirus software and regularly backing up your data.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button flex-sb">
+                                    What should I do if my data has been breached?
+                                    <img src="/Images/icon/plus.png" alt="icon">
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse">
+                                <p>If you suspect your data has been breached, change your passwords immediately, enable two-factor authentication, monitor your accounts for unusual activity, and consider reporting the breach to relevant authorities or companies affected.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="400">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button flex-sb">
+                                    What is a VPN and why should I use one?
+                                    <img src="/Images/icon/plus.png" alt="icon">
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse">
+                                <p>A VPN (Virtual Private Network) encrypts your internet connection and masks your IP address, providing privacy and security when browsing online. It can help protect your data from hackers, especially when using public Wi-Fi networks.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="500">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button flex-sb">
+                                    What are the best practices for creating a secure password?
+                                    <img src="/Images/icon/plus.png" alt="icon">
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse">
+                                <p>To create a secure password, use a combination of uppercase and lowercase letters, numbers, and special characters. Avoid using easily guessable information like names or birthdays. A strong password should be at least 12 characters long and unique for each account. Consider using a password manager to generate and store complex passwords, and enable two-factor authentication (2FA) for an additional layer of security.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+            
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="parallax-bg"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Cyber Sentinel</h2>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Simulations</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h4>Subscribe to our Newsletter</h4>
+                    <form>
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Cyber Sentinel. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+                
+       
+        
+             
     </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
+    <script src="script3.js"></script>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    let accordionButtons = document.querySelectorAll('.accordion-button');
+    let acoimg = document.querySelectorAll('.accordion-button img');
+
+    accordionButtons.forEach(function(button, index) {
+        button.addEventListener('click', function() {
+            let collapse = this.parentElement.nextElementSibling;
+
+            accordionButtons.forEach(function(otherButton, otherIndex) {
+                if (otherButton !== button) {
+                    let otherCollapse = otherButton.parentElement.nextElementSibling;
+                    otherCollapse.style.maxHeight = null;
+
+                    acoimg[otherIndex].src = '/Images/icon/plus.png';
+                    acoimg[otherIndex].style.transform = 'rotate(0deg)';
+                    otherButton.style.backgroundColor = "#fff";
+                }
+            });
+
+            if (collapse.style.maxHeight) {
+                collapse.style.maxHeight = null;
+                acoimg[index].src = "/Images/icon/plus.png";
+                acoimg[index].style.transform = "rotate(90deg)";
+                button.style.backgroundColor = '';
+            } else {
+                collapse.style.maxHeight = collapse.scrollHeight + "px";
+
+                acoimg[index].src = "/Images/icon/menus.png";
+                acoimg[index].style.transform = "rotate(180deg)";
+                button.style.backgroundColor = '#c1b0b5';
+            }
+        });
+    });
+});
+
+    </script>
+    
 
     <!-- Scroll animation lib -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            offset: 150,
-            duration: 1250,
-            once: true,
-        });
-    </script>
+    
 
     <!-- jquery js cdn -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
@@ -73,81 +426,28 @@
     <!-- slick carousel min js cdn -->
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
         integrity="sha256-DHF4zGyjT7GOMPBwpeehwoey18z8uiz98G4PRu2lV0A=" crossorigin="anonymous"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6"></script>
-    <!-- <script>
-        // List of pages and keywords
-        const pages = {
-            "home": ["/index.html", ["home", "main page", "start"]],
-            "about": ["/about.html", ["about", "about us", "who we are"]],
-            "services": ["/services.html", ["services", "what we offer", "products"]],
-            "contact": ["/contact.html", ["contact", "reach us", "contact page"]],
-            "cybersecurity": ["/cybersecurity.html", ["cybersecurity", "security", "data protection"]],
-            "phishing": ["/phishingInfo.ejs", ["phishing", "email security", "phishing awareness"]],
-            "awareness": ["/awareness.html", ["awareness", "education", "training"]]
-        };
-        
-        // Handle search form submission
-        document.getElementById('searchForm').addEventListener('submit', function(event) {
-            event.preventDefault();  // Prevent form from submitting
-        
-            const query = document.querySelector('input[name="query"]').value.toLowerCase().trim();
-            let found = false;
-        
-            // Iterate through the pages to find a match
-            for (let page in pages) {
-                if (pages[page][1].some(keyword => query.includes(keyword))) {
-                    window.location.href = pages[page][0];  // Redirect if a keyword matches
-                    found = true;
-                    break;
-                }
-            }
-        
-            // If no match found, show an alert
-            if (!found) {
-                alert('No results found.');
-            }
-        });
-    </script>  -->
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // List of pages and keywords
-            const pages = {
-                "home": ["/index.html", ["home", "main page", "start"]],
-                "about": ["/about.html", ["about", "about us", "who we are"]],
-                "services": ["/services.html", ["services", "what we offer", "products"]],
-                "contact": ["/contact.html", ["contact", "reach us", "contact page"]],
-                "cybersecurity": ["/cybersecurity.html", ["cybersecurity", "security", "data protection"]],
-                "phishing": ["/phishingInfo", ["phishing", "email security", "phishing awareness"]],
-                "awareness": ["/awareness.html", ["awareness", "education", "training"]]
-            };
-    
-            // Handle search form submission
-            document.getElementById('searchForm').addEventListener('submit', function(event) {
-                event.preventDefault();  // Prevent form from submitting
-    
-                const query = document.querySelector('input[name="query"]').value.toLowerCase().trim();
-                let found = false;
-    
-                // Iterate through the pages to find a match
-                for (let page in pages) {
-                    if (pages[page][1].some(keyword => query.includes(keyword))) {
-                        window.location.href = pages[page][0];  // Redirect if a keyword matches
-                        found = true;
-                        break;
-                    }
-                }
-    
-                // If no match found, show an alert
-                if (!found) {
-                    alert('No results found.');
-                }
+        <script src="vanilla-tilt.min.js"></script>
+        <script>
+            VanillaTilt.init(document.querySelectorAll(".card"),{
+                glare: true,
+                reverse: true,
+                "max-glare": 0.1,
             });
-        });
-    </script>
+        </script>
+    
+        <script>
+            AOS.init({
+                offset: 150,
+                duration: 1250,
+                once: true,
+            });
+        </script>
         
-
 </body>
 
 </html>
+
+
+
+

@@ -349,7 +349,7 @@
                 </div>
                 <div class="compro-slider flex mt-15" data-aos="fade-right" data-aos-delay="400">
                     <div class="compro-img">
-                        <img src="Images/slider/directorycompro1.webp" alt="avatar">
+                        <img src="Images/slider/directorycompro1.jpg" alt="avatar">
                         <div class="overlay">
                             <div class="overlay_text">
                                 <h3>Suspicious URL Patterns</h3>
@@ -376,7 +376,7 @@
                         </div>
                     </div>
                     <div class="compro-img">
-                        <img src="Images/slider/directorycompro4.webp" alt="avatar">
+                        <img src="Images/slider/directorycompro4.jpg" alt="avatar">
                         <div class="overlay">
                             <div class="overlay_text">
                                 <h3>Abnormal Request Patterns</h3>
@@ -394,7 +394,7 @@
                         </div>
                     </div>
                     <div class="compro-img">
-                        <img src="Images/slider/directorycompro6.webp" alt="avatar">
+                        <img src="Images/slider/directorycompro6.jpg" alt="avatar">
                         <div class="overlay">
                             <div class="overlay_text">
                                 <h3>Lack of Input Validation</h3>
@@ -604,7 +604,35 @@
         });
     </script>
 
-    <!-- directory statistics 1 -->
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Scroll animation lib -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 150,
+            duration: 1250,
+            once: true,
+        });
+    </script>
+
+    <!-- jquery js cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- jquery min js cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- slick carousel min js cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+        integrity="sha256-DHF4zGyjT7GOMPBwpeehwoey18z8uiz98G4PRu2lV0A=" crossorigin="anonymous"></script>
+
+        <!-- directory statistics 1 -->
     <script>
         window.onload = function() {
             var chartRendered = false; // To prevent multiple re-renders
@@ -682,33 +710,41 @@
             observer.observe(chartContainer);
         };
 
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
-
-    <!-- Scroll animation lib -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            offset: 150,
-            duration: 1250,
-            once: true,
+        $('.compro-slider').slick({
+            arrows: false,
+            dots: true,
+            infinite: true, 
+            autoplay: true,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        dots: true,
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    }
+                }
+            ]
         });
+
     </script>
-
-    <!-- jquery js cdn -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
-        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- jquery min js cdn -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <!-- slick carousel min js cdn -->
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-        integrity="sha256-DHF4zGyjT7GOMPBwpeehwoey18z8uiz98G4PRu2lV0A=" crossorigin="anonymous"></script>
 </body>
 
 </html>
