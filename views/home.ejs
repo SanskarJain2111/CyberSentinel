@@ -240,29 +240,29 @@
             <div class="steps-container">
                 <div class="step unique-card" data-aos="fade-down">
                     <div class="step-icon">📝</div>
-                    <h3>Step 1: Sign Up</h3>
-                    <p>Create a free account to access our cybersecurity training platform. It's fast and easy!</p>
+                    <h3>Step 1: Read About Attack</h3>
+                    <p>Learn about the various cyber attacks to understand their mechanisms and how they are executed in real-world scenarios.(Optional)</p>
                 </div>
-
+            
                 <div class="step unique-card" data-aos="fade-up">
                     <div class="step-icon">🎯</div>
                     <h3>Step 2: Choose a Simulation</h3>
                     <p>Select from a wide range of cyber attack simulations tailored to different threats like phishing, ransomware, and more.</p>
                 </div>
-
+            
                 <div class="step unique-card" data-aos="fade-down">
                     <div class="step-icon">🕹️</div>
                     <h3>Step 3: Start the Simulation</h3>
                     <p>Experience real-world attack scenarios in a safe environment and test your ability to recognize and respond to cyber threats.</p>
                 </div>
-
+            
                 <div class="step unique-card" data-aos="fade-up">
                     <div class="step-icon">📊</div>
                     <h3>Step 4: Review Your Performance</h3>
                     <p>Get detailed reports of your actions during the simulation and personalized tips on how to improve your security awareness.</p>
                 </div>
             </div>
-        </div>
+            
     </section>
 
     <!-- FAQ Section -->
@@ -382,47 +382,47 @@
     </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script3.js"></script>
 
-    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-    let accordionButtons = document.querySelectorAll('.accordion-button');
-    let acoimg = document.querySelectorAll('.accordion-button img');
+        let accordionButtons = document.querySelectorAll('.accordion-button');
+        let acoimg = document.querySelectorAll('.accordion-button img');
 
-    accordionButtons.forEach(function(button, index) {
-        button.addEventListener('click', function() {
-            let collapse = this.parentElement.nextElementSibling;
+        accordionButtons.forEach(function(button, index) {
+            button.addEventListener('click', function() {
+                let collapse = this.parentElement.nextElementSibling;
 
-            accordionButtons.forEach(function(otherButton, otherIndex) {
-                if (otherButton !== button) {
-                    let otherCollapse = otherButton.parentElement.nextElementSibling;
-                    otherCollapse.style.maxHeight = null;
+                accordionButtons.forEach(function(otherButton, otherIndex) {
+                    if (otherButton !== button) {
+                        let otherCollapse = otherButton.parentElement.nextElementSibling;
+                        otherCollapse.style.maxHeight = null;
 
-                    acoimg[otherIndex].src = '/Images/icon/plus.png';
-                    acoimg[otherIndex].style.transform = 'rotate(0deg)';
-                    otherButton.style.backgroundColor = "#fff";
+                        acoimg[otherIndex].src = '/Images/icon/plus.png';
+                        acoimg[otherIndex].style.transform = 'rotate(0deg)';
+                        otherButton.style.backgroundColor = "#fff";
+                    }
+                });
+
+                if (collapse.style.maxHeight) {
+                    collapse.style.maxHeight = null;
+                    acoimg[index].src = "/Images/icon/plus.png";
+                    acoimg[index].style.transform = "rotate(90deg)";
+                    button.style.backgroundColor = '';
+                } else {
+                    collapse.style.maxHeight = collapse.scrollHeight + "px";
+
+                    acoimg[index].src = "/Images/icon/menus.png";
+                    acoimg[index].style.transform = "rotate(180deg)";
+                    button.style.backgroundColor = '#c1b0b5';
                 }
             });
-
-            if (collapse.style.maxHeight) {
-                collapse.style.maxHeight = null;
-                acoimg[index].src = "/Images/icon/plus.png";
-                acoimg[index].style.transform = "rotate(90deg)";
-                button.style.backgroundColor = '';
-            } else {
-                collapse.style.maxHeight = collapse.scrollHeight + "px";
-
-                acoimg[index].src = "/Images/icon/menus.png";
-                acoimg[index].style.transform = "rotate(180deg)";
-                button.style.backgroundColor = '#c1b0b5';
-            }
         });
     });
-});
 
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script3.js"></script>
     
 
     <!-- Scroll animation lib -->

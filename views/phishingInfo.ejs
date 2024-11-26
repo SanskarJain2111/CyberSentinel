@@ -264,14 +264,14 @@
                         <p class="mt-1">The bar chart illustrates the growing prevalence of phishing attacks over the past six years, highlighting the significant surge in cyber threats, particularly during the post-COVID era. The data underscores the increasing frequency of phishing attempts, reflecting the evolving tactics of cybercriminals targeting individuals and organizations worldwide.</p>
                     </div>
                     <div class="flex w-33 flex-end">
-                        <a href="/" class="btn_hover2">Reference</a>
+                        <a href="/https://www.verizon.com/business/resources/reports/dbir/" class="btn_hover2">Reference</a>
                     </div>
                     <div class="chart-container">
                         <canvas id="phishingPrevalenceChart"></canvas>
                     </div>
                 </div>
 
-                <div class="pie-charts" data-aos="fade-left">
+                <!-- <div class="pie-charts" data-aos="fade-left">
                     <div class="pie">
                         <div class="outer">
                             <div class="inner">
@@ -329,7 +329,7 @@
                         </svg>
                     </div>
                 </div>
-                
+                 -->
 
                 <div class="bar-chart mt-4" data-aos="fade-right">
                     <div class="container">
@@ -404,7 +404,7 @@
                         <p class="mt-1">Phishing attacks often come with telltale signs that can help you spot them before falling victim. Below are the most common indicators of a phishing attempt—learn to recognize them and protect your sensitive information.</p>
                     </div>
                     <div class="flex w-33 flex-end">
-                        <a href="/" class="btn_hover2">Reference</a>
+                        <a href="/https://www.ibm.com/topics/phishing#:~:text=Phishing%20is%20a%20type%20of,otherwise%20exposing%20themselves%20to%20cybercrime." class="btn_hover2">Reference</a>
                     </div>
                 </div>
                 <div class="compro-slider flex mt-15" data-aos="fade-right" data-aos-delay="400">
@@ -779,6 +779,33 @@
                     }
                 ]
         });
+
+
+        document.querySelectorAll('.incident-event').forEach(event => {
+    event.addEventListener('click', () => {
+        const detailsDiv = event.querySelector('.incident-details');
+        const content = event.getAttribute('data-content');
+
+        // Collapse any other opened details
+        document.querySelectorAll('.incident-details.active').forEach(activeDetail => {
+            if (activeDetail !== detailsDiv) {
+                activeDetail.classList.remove('active');
+                activeDetail.innerHTML = ''; // Clear content when collapsing other details
+            }
+        });
+
+        // Toggle current event's details
+        if (detailsDiv.classList.contains('active')) {
+            // Collapse the details
+            detailsDiv.classList.remove('active');
+            detailsDiv.innerHTML = ''; // Clear content on collapse
+        } else {
+            // Expand the details
+            detailsDiv.classList.add('active');
+            detailsDiv.innerHTML = content; // Set content when expanding
+        }
+    });
+});
 
         </script>
 </body>

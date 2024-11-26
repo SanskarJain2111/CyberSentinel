@@ -4,29 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/D_Traversal/public/directorystyle.css">
-    <title>Security Report</title>
+    <title>Website Security Report</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1f1f1f;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-y: auto; /* Enable scrolling for smaller screens */
+        }
+
+        .report-container {
+            background-color: #292b2c;
+            border-radius: 8px;
+            padding: 20px;
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh; /* Limit container height */
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            overflow-y: auto; /* Enable scrolling within the container */
+            color: #fff;
+        }
+
+        h2, h3, h4 {
+            color: #ffffff;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #ffffff;
+        }
+
+        ul.vulnerability-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul.vulnerability-list li {
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #ff7b57;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #ff5722;
+        }
+
+        .note {
+            background-color: #333;
+            border-left: 4px solid #ff5722;
+            padding: 10px;
+            margin-top: 15px;
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
-    <div class="container report-container">
-        <!-- <h2>Security Vulnerability Report</h2>
-         -->
-        <h2>Overview</h2>
-        <p>The purpose of this report is to summarize the security vulnerabilities found in the web application.</p>
+    <div class="report-container">
+        <h2>Website Security Overview</h2>
+        <p>This report highlights security issues found in the website and offers guidance on staying safe. Your security is our top priority, and we’re actively addressing these areas.</p>
         
-        <h3>Vulnerabilities Found</h3>
+        <h3>Identified Security Risks</h3>
         <ul class="vulnerability-list">
             <li>
-                <h4>1. Directory Traversal Attack</h4>
-                <p>Description: A directory traversal attack allows attackers to read sensitive files on the server by manipulating file paths.</p>
-                <p>Impact: Attackers can gain unauthorized access to sensitive data.</p>
-                <p>Mitigation: Implement input validation and restrict access to sensitive directories.</p>
+                <h4>1. Directory Traversal Vulnerability</h4>
+                <p><strong>Impact:</strong> Unauthorized users might gain access to sensitive information, risking data privacy.</p>
+                <p><strong>How to Stay Safe:</strong> Avoid interacting with unfamiliar files or links, and report any suspicious activities immediately.</p>
+                <p><strong>Our Solution:</strong> We’re implementing stricter file access controls and reinforcing validation checks to prevent unauthorized access.</p>
             </li>
-            <!-- Add more vulnerabilities as needed -->
+            <!-- Additional vulnerabilities can be added here in the same format -->
         </ul>
-        
-        <h4>Recommendations</h4>
-        <p>It is recommended to conduct regular security audits and implement best practices for web application security.</p>
-        
+
+        <h3>General Safety Recommendations</h3>
+        <p>Follow these best practices to stay safe while using the website:</p>
+        <ul>
+            <li>Use strong, unique passwords and avoid sharing them.</li>
+            <li>Be cautious of links from unknown sources.</li>
+            <li>Enable multi-factor authentication (MFA) for added security.</li>
+            <li>Limit sharing sensitive information with unknown contacts.</li>
+        </ul>
+
+        <div class="note">
+            <p><strong>Note:</strong> We are committed to regular security updates. If you notice any unusual activity, please contact our support team for assistance.</p>
+        </div>
+
         <a href="/D_Traversal/index" class="back-button">Go Back</a>
     </div>
 </body>

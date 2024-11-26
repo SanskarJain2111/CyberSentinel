@@ -74,6 +74,19 @@
             text-align: left;
         }
 
+        /* Back to login button styling */
+        .back-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
         /* Mobile responsiveness */
         @media (max-width: 600px) {
             .spam-report-container {
@@ -104,6 +117,9 @@
                 <li><%= action %></li>
             <% }) %>
         </ul>
+
+        <!-- Back to Login Button -->
+        <a href="/SQLSimulation/index" class="back-button">Back to Login Page</a>
     </div>
 
 </body>

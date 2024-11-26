@@ -107,7 +107,9 @@
                     </div>
                     <div class="w-50" data-aos="fade-down">
                         <div class="custom-image">
-                            <img src="Images/home/xssOverview.jpg" alt="img">
+                            <a href="https://www.cloudflare.com/en-gb/learning/security/threats/cross-site-scripting/">
+                                <img src="Images/home/xssOverview.jpg" alt="img">
+                            </a>
                         </div>
                     </div>
                 </div> 
@@ -778,6 +780,34 @@
                     }
                 }
             ]
+        });
+
+        //Notable Incident
+
+        document.querySelectorAll('.incident-event').forEach(event => {
+            event.addEventListener('click', () => {
+                const detailsDiv = event.querySelector('.incident-details');
+                const content = event.getAttribute('data-content');
+
+                // Collapse any other opened details
+                document.querySelectorAll('.incident-details.active').forEach(activeDetail => {
+                    if (activeDetail !== detailsDiv) {
+                        activeDetail.classList.remove('active');
+                        activeDetail.innerHTML = ''; // Clear content when collapsing other details
+                    }
+                });
+
+                // Toggle current event's details
+                if (detailsDiv.classList.contains('active')) {
+                    // Collapse the details
+                    detailsDiv.classList.remove('active');
+                    detailsDiv.innerHTML = ''; // Clear content on collapse
+                } else {
+                    // Expand the details
+                    detailsDiv.classList.add('active');
+                    detailsDiv.innerHTML = content; // Set content when expanding
+                }
+            });
         });
     </script>
 </body>

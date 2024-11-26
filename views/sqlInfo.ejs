@@ -401,7 +401,7 @@
                         <p class="mt-1">The bar chart highlights the alarming rise in SQL injection attacks over the past six years, demonstrating the persistent threat they pose to databases worldwide. As businesses digitized rapidly, especially during and after the COVID-19 pandemic, attackers increasingly exploited vulnerable database systems. This data reflects how SQL injections remain a favored technique among cybercriminals, leading to unauthorized data access, breaches, and significant security challenges for organizations globally.                       </p>
                     </div>
                     <div class="flex w-33 flex-end">
-                        <a href="/" class="btn_hover2">Reference</a>
+                        <a href="/https://www.verizon.com/business/resources/reports/dbir/" class="btn_hover2">Reference</a>
                     </div>
                     <div class="chart-container">
                         <canvas id="sqlInjectionChart"></canvas>
@@ -929,6 +929,34 @@
                     }
                 }
             ]
+        });
+
+        //Notable Incident
+
+        document.querySelectorAll('.incident-event').forEach(event => {
+            event.addEventListener('click', () => {
+                const detailsDiv = event.querySelector('.incident-details');
+                const content = event.getAttribute('data-content');
+
+                // Collapse any other opened details
+                document.querySelectorAll('.incident-details.active').forEach(activeDetail => {
+                    if (activeDetail !== detailsDiv) {
+                        activeDetail.classList.remove('active');
+                        activeDetail.innerHTML = ''; // Clear content when collapsing other details
+                    }
+                });
+
+                // Toggle current event's details
+                if (detailsDiv.classList.contains('active')) {
+                    // Collapse the details
+                    detailsDiv.classList.remove('active');
+                    detailsDiv.innerHTML = ''; // Clear content on collapse
+                } else {
+                    // Expand the details
+                    detailsDiv.classList.add('active');
+                    detailsDiv.innerHTML = content; // Set content when expanding
+                }
+            });
         });
     </script>
 </body>

@@ -580,6 +580,21 @@ aside .simulation{
     text-transform: uppercase;
 }
 
+/* Right side bar header */
+.header-right-sidebar{
+    width: 355px;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    /* right: -355px; */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding: 60px 25px 20px 30px;
+    z-index: 2;
+    background: #d3c9c1;
+}
+
 
 .page{
     background: linear-gradient(11deg, #1a0218a8 0.01%, #020e1aa1 40%), url('../Images/home/homepagebg.avif');
@@ -783,6 +798,7 @@ aside .simulation{
     font-size: 20px;
     padding: 0 50px 50px 0px;
     line-height: 25px;
+    text-align: justify;
 }
 
 .custom-image img {
