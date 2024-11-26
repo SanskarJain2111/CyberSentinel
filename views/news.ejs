@@ -1,0 +1,353 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+    .news-container {
+      margin-top: 20px;
+    }
+    .news-item {
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+    }
+    .news-title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .news-description {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Latest News</h1>
+  <div class="news-container">
+    <% news.forEach(item => { %>
+      <div class="news-item">
+        <div class="news-title"><%= item.title %></div>
+        <div class="news-description"><%= item.description %></div>
+      </div>
+    <% }); %>
+  </div>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News</title>
+  <style>
+    /* General styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #0a111e;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      color: #ffffff;
+      margin-bottom: 1em;
+    }
+
+    /* News container */
+    #news-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Individual news card styling */
+    .news-card {
+      background: transparent; /* Start with a transparent background */
+      border: 1px solid #ddd;
+      border-radius: 0px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: left;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .news-card:hover {
+      background: linear-gradient(135deg, rgba(64, 216, 253, 0.6), rgba(129, 106, 255, 0.6)); /* Show gradient on hover */
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* News title styling */
+    .news-card h2 {
+      font-size: 1.25em;
+      font-weight: bold;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .news-card h2 a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .news-card h2 a:hover {
+      text-decoration: underline;
+    }
+
+    /* Description styling */
+    .news-card p {
+      font-size: 0.95em;
+      line-height: 1.6;
+      color: #ececec;
+      margin-bottom: 10px;
+    }
+
+    /* Footer with publication date */
+    .news-footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85em;
+      color: #cbcbcb;
+      margin-top: 10px;
+    }
+
+    /* "Read more" link styling */
+    .read-more {
+      color: #03abd1;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .news-card:hover .read-more {
+      color: #ffffff; /* Change to white on hovering the card */
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+
+    /* "Show More" button styling */
+    #show-more {
+      display: block;
+      width: 200px;
+      margin: 20px auto;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #show-more:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+    <h1>Latest News</h1>
+    <div id="news-container">
+      <% news.forEach(item => { %>
+        <div class="news-card">
+          <h2><a href="<%= item.url %>" target="_blank"><%= item.title %></a></h2>
+          <p><%= item.description %></p>
+          <div class="news-footer">
+            <span>Published: <%= item.publishedAt %></span>
+            <a class="read-more" href="<%= item.url %>" target="_blank">Read more</a>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+    <button id="show-more">Show More</button>
+  </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+      <link rel="stylesheet" href="css/style.css">
+
+      <link rel="stylesheet" href="css/easy.css">
+
+      <link rel="stylesheet" href="css/slick.min.css">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* General styling */
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-color: #0a111e;
+          color: #333;
+        }
+
+        h1 {
+          text-align: center;
+          font-size: 2em;
+          color: #ffffff;
+          margin-bottom: 1em;
+        }
+
+        /* News container */
+        #news-container {
+          max-width: 800px;
+          margin: 0 auto;
+        }
+
+        /* Individual news card styling */
+        .news-card {
+          background: transparent; /* Start with a transparent background */
+          border: 1px solid #ddd;
+          border-radius: 0px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          margin-bottom: 20px;
+          text-align: left;
+          transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .news-card:hover {
+          background: linear-gradient(135deg, rgba(64, 216, 253, 0.6), rgba(129, 106, 255, 0.6)); /* Show gradient on hover */
+          transform: translateY(-5px);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* News title styling */
+        .news-card h2 {
+          font-size: 1.25em;
+          font-weight: bold;
+          color: #ffffff;
+          margin-bottom: 10px;
+        }
+
+        .news-card h2 a {
+          color: #ffffff;
+          text-decoration: none;
+        }
+
+        .news-card h2 a:hover {
+          text-decoration: underline;
+        }
+
+        /* Description styling */
+        .news-card p {
+          font-size: 0.95em;
+          line-height: 1.6;
+          color: #ececec;
+          margin-bottom: 10px;
+        }
+
+        /* Footer with publication date */
+        .news-footer {
+          display: flex;
+          justify-content: space-between;
+          font-size: 0.85em;
+          color: #cbcbcb;
+          margin-top: 10px;
+        }
+
+        /* "Read more" link styling */
+        .read-more {
+          color: #03abd1;
+          font-weight: 500;
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+
+        .news-card:hover .read-more {
+          color: #ffffff; /* Change to white on hovering the card */
+        }
+
+        .read-more:hover {
+          text-decoration: underline;
+        }
+
+        /* "Show More" button styling */
+        #show-more {
+          display: block;
+          width: 200px;
+          margin: 20px auto;
+          padding: 10px;
+          background-color: #333;
+          color: #fff;
+          font-size: 1em;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+
+        #show-more:hover {
+          background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <section class="attack"><%- include('header') %></section>
+    <h1>Latest News</h1>
+    <div id="news-container"></div>
+    <button id="show-more">Show More</button>
+
+    <script>
+        const news = <%- JSON.stringify(news) %>; // Embed your news data from the server
+        const newsContainer = document.getElementById('news-container');
+        const showMoreButton = document.getElementById('show-more');
+        let currentIndex = 0;
+        const itemsPerLoad = 7; // Number of news items to show initially and load on each click
+
+        // Function to load and display news items
+        function loadNewsItems() {
+        const nextIndex = Math.min(currentIndex + itemsPerLoad, news.length);
+        for (let i = currentIndex; i < nextIndex; i++) {
+            const item = news[i];
+            const newsCard = document.createElement('div');
+            newsCard.classList.add('news-card');
+            newsCard.innerHTML = `
+            <h2><a href="${item.url}" target="_blank">${item.title}</a></h2>
+            <p>${item.description}</p>
+            <div class="news-footer">
+                <span>Published: ${item.publishedAt}</span>
+                <a class="read-more" href="${item.url}" target="_blank">Read more</a>
+            </div>
+            `;
+            newsContainer.appendChild(newsCard);
+        }
+        currentIndex = nextIndex;
+
+        // Hide the button if all news items are displayed
+        if (currentIndex >= news.length) {
+            showMoreButton.style.display = 'none';
+        }
+        }
+
+        // Initial load
+        loadNewsItems();
+
+        // Add event listener to "Show More" button
+        showMoreButton.addEventListener('click', loadNewsItems);
+    </script>
+</body>
+</html>
